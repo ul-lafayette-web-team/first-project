@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * @file
+ * Contains functionality for the Louisiana Landing Page module.
+ */
+
+/**
+ * Implements template_preprocess_node().
+ */
+function lafayette_landing_page_preprocess_node(&$vars) {
+  if ($vars['node']->bundle() == 'landing_page') {
+    if ($vars['view_mode'] == 'full') {
+      /* Hero */
+
+      // Build the hero.
+      $vars['hero'] = [
+        '#theme' => 'hero',
+        '#hero_type' => 'parallax',
+        '#overlay' => TRUE,
+        '#video_type' => 'yt_player',
+        '#image' => $vars['content']['field_header_image'],
+        '#video' => $vars['content']['field_header_video'],
+        '#title' => $vars['label'],
+      ];
+    }
+  }
+}

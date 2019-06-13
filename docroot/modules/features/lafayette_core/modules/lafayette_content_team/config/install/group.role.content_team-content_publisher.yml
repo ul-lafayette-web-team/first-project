@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.content_team
+id: content_team-content_publisher
+label: 'Content Publisher'
+weight: -9
+internal: false
+audience: member
+group_type: content_team
+permissions_ui: true
+permissions:
+  0: 'access content overview'
+  1: 'view group'
+  4: 'create group_node:page entity'
+  5: 'delete any group_node:page entity'
+  6: 'delete own group_node:page entity'
+  7: 'update any group_node:page entity'
+  8: 'update own group_node:page entity'
+  9: 'view group_node:page entity'
+  10: 'view unpublished group_node:page entity'
+  11: 'create group_node:page content'
+  12: 'delete any group_node:page content'
+  13: 'delete own group_node:page content'

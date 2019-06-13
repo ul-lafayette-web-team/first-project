@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Contains functionality for the Louisiana Program module.
+ */
+
+/**
+ * Implements template_preprocess_node().
+ */
+function lafayette_program_preprocess_node(&$vars) {
+  if ($vars['node']->bundle() == 'program') {
+    if ($vars['view_mode'] == 'full') {
+      // Build the breadcrumbs.
+      $breadcrumbs = lafayette_content_get_breadcrumbs();
+      $vars['breadcrumbs'] = render($breadcrumbs);
+    }
+  }
+}

@@ -1,0 +1,14 @@
+.views-filter-url label {
+  font-family: inherit;
+  font-size: .875rem;
+  font-weight: 700;
+}
+
+.views-filter-url input {
+  width: 100%;
+  padding: .25em .5em;
+  background-color: #dddddd;
+  border: 1px solid #666666;
+  font-family: inherit;
+  font-size: .875rem;
+}

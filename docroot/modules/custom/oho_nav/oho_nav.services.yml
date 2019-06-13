@@ -1,0 +1,4 @@
+services:
+  oho_nav.oho_nav_builder:
+    class: Drupal\oho_nav\OHONavBuilder
+    arguments: ['@menu.link_tree', '@menu.active_trail', '@entity_type.manager']

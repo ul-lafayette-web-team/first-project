@@ -1,0 +1,33 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.program_landing.body
+    - field.field.node.program_landing.field_intro_text
+    - field.field.node.program_landing.field_metatags
+    - node.type.program_landing
+  module:
+    - text
+    - user
+id: node.program_landing.default
+targetEntityType: node
+bundle: program_landing
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_intro_text:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  field_metatags: true
+  links: true

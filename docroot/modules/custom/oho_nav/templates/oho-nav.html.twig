@@ -1,0 +1,38 @@
+{#
+/**
+ * @file
+ * Default theme implementation for the OHO Nav.
+ *
+ * Available variables:
+ * - nav_title
+ * - nav_url
+ * - nav
+ */
+#}
+<nav>
+  {% if nav_title %}
+    {% if nav_title.items|length > 1 %}
+      <ul>
+        {% for item in nav_title.items %}
+          <li>
+          {% if item.url %}
+            <a href="{{ item.url }}">{{ item.title }}</a>
+          {% else %}
+            {{ item.title }}
+          {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <h3>
+      {% if nav_title.items[0].url %}
+        <a href="{{ nav_title.items[0].url }}">{{ nav_title.items[0].title }}</a>
+      {% else %}
+        {{ nav_title.items[0].title }}
+      {% endif %}
+      </h3>
+    {% endif %}
+  {% endif %}
+
+  {{ nav }}
+</nav>

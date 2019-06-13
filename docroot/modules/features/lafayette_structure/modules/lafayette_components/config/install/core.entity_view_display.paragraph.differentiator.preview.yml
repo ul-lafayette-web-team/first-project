@@ -1,0 +1,45 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.differentiator.field_component_icon
+    - field.field.paragraph.differentiator.field_component_image
+    - field.field.paragraph.differentiator.field_component_subtitle
+    - field.field.paragraph.differentiator.field_component_title
+    - field.field.paragraph.differentiator.field_component_title_link
+    - field.field.paragraph.differentiator.field_differentiator_value
+    - paragraphs.paragraphs_type.differentiator
+id: paragraph.differentiator.preview
+targetEntityType: paragraph
+bundle: differentiator
+mode: preview
+content:
+  field_component_subtitle:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_component_title:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_differentiator_value:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  field_component_icon: true
+  field_component_image: true
+  field_component_title_link: true

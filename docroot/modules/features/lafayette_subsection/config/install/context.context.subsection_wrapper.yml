@@ -1,0 +1,51 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - oho_group
+    - system
+name: subsection_wrapper
+label: 'Subsection Wrapper'
+group: 'Subsection Wrapper'
+description: ''
+requireAllConditions: true
+disabled: false
+conditions:
+  group_content:
+    id: group_content
+    group_types:
+      subsection: subsection
+    negate: 0
+    uuid: 8efc50cd-2c64-49bd-806a-96627c740d39
+    context_mapping:
+      node: '@node.node_route_context:node'
+  current_theme:
+    id: current_theme
+    theme: oho_base
+    negate: 0
+    uuid: c7e8d7eb-a96b-428b-848b-998e6a60e84c
+    context_mapping: {  }
+reactions:
+  blocks:
+    blocks:
+      60f752c2-bce9-4ad6-820d-5f046e4a69ba:
+        id: group_view_block
+        label: 'Group View Block'
+        provider: oho_group
+        label_display: 0
+        group_type: subsection
+        view_mode: default
+        region: primary_nav
+        weight: '0'
+        context_mapping:
+          node: '@node.node_route_context:node'
+        theme: oho_base
+        css_class: ''
+        unique: 0
+        context_id: subsection_wrapper
+        uuid: 60f752c2-bce9-4ad6-820d-5f046e4a69ba
+    id: blocks
+    saved: false
+    uuid: b77a4c46-6439-4546-864d-a5ad0d73588c
+    include_default_blocks: 0
+weight: 0

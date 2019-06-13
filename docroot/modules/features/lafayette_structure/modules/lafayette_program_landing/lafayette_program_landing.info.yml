@@ -1,0 +1,19 @@
+name: 'Louisiana Program Landing'
+type: module
+core: 8.x
+dependencies:
+  - allowed_formats
+  - content_moderation
+  - field
+  - lafayette_global_fields
+  - menu_ui
+  - metatag
+  - node
+  - path
+  - pathauto
+  - rabbit_hole
+  - simple_sitemap
+  - smart_trim
+  - text
+  - user
+package: Louisiana

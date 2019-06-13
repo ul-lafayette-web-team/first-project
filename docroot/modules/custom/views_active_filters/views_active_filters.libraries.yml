@@ -1,0 +1,8 @@
+views_active_filters:
+  version: VERSION
+  js:
+    js/views-active-filters.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once

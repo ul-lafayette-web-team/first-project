@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'News Tag'
+vid: news_tag
+description: ''
+weight: 0

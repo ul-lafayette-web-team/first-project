@@ -1,0 +1,55 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.profile.body
+    - field.field.node.profile.field_metatags
+    - field.field.node.profile.field_profile_email
+    - field.field.node.profile.field_profile_first_name
+    - field.field.node.profile.field_profile_image
+    - field.field.node.profile.field_profile_last_name
+    - field.field.node.profile.field_profile_office_location
+    - field.field.node.profile.field_profile_phone_number
+    - field.field.node.profile.field_profile_position
+    - field.field.node.profile.field_profile_type
+    - node.type.profile
+  module:
+    - smart_trim
+    - user
+id: node.profile.teaser
+targetEntityType: node
+bundle: profile
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: smart_trim
+    weight: 0
+    settings:
+      trim_length: 200
+      trim_type: chars
+      trim_suffix: ...
+      wrap_class: trimmed
+      more_text: More
+      more_class: more-link
+      summary_handler: full
+      trim_options:
+        text: true
+        trim_zero: false
+      wrap_output: false
+      more_link: false
+    third_party_settings: {  }
+    region: content
+hidden:
+  content_moderation_control: true
+  field_metatags: true
+  field_profile_email: true
+  field_profile_first_name: true
+  field_profile_image: true
+  field_profile_last_name: true
+  field_profile_office_location: true
+  field_profile_phone_number: true
+  field_profile_position: true
+  field_profile_type: true
+  links: true

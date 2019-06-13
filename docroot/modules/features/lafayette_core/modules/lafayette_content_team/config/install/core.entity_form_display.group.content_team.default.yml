@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.content_team
+id: group.content_team.default
+targetEntityType: group
+bundle: content_team
+mode: default
+content:
+  label:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  path: true

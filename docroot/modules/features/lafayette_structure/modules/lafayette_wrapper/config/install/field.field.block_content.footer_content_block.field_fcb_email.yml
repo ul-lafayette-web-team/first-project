@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.footer_content_block
+    - field.storage.block_content.field_fcb_email
+id: block_content.footer_content_block.field_fcb_email
+field_name: field_fcb_email
+entity_type: block_content
+bundle: footer_content_block
+label: Email
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

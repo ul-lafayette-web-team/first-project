@@ -1,0 +1,31 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.mega_menu_item.field_component_body
+    - field.field.paragraph.mega_menu_item.field_component_link
+    - field.field.paragraph.mega_menu_item.field_mmi_links
+    - paragraphs.paragraphs_type.mega_menu_item
+  module:
+    - link
+id: paragraph.mega_menu_item.preview
+targetEntityType: paragraph
+bundle: mega_menu_item
+mode: preview
+content:
+  field_component_link:
+    weight: 0
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+hidden:
+  field_component_body: true
+  field_mmi_links: true

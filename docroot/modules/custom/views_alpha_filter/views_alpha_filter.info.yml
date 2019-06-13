@@ -1,0 +1,9 @@
+name : Views Alpha Filter
+type: module
+description : A module that provides an alphabet exposed filter option to views.
+core : 8.x
+version: 1.0-beta1
+package : Views
+dependencies:
+  - better_exposed_filters
+  - drupal:views

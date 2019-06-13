@@ -1,0 +1,19 @@
+name: 'Louisiana Workflow'
+type: module
+description: 'Provides a content workflow.'
+package: Louisiana
+core: 8.x
+dependencies:
+  - content_moderation
+  - lafayette_home
+  - lafayette_landing_page
+  - lafayette_news
+  - lafayette_organization
+  - lafayette_page
+  - lafayette_process_page
+  - lafayette_profile
+  - lafayette_program
+  - lafayette_program_landing
+  - lafayette_tuition_fees_page
+  - lafayette_webform
+  - workflows

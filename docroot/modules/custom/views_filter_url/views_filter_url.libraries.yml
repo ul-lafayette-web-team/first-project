@@ -1,0 +1,11 @@
+styles:
+  css:
+    theme:
+      css/views-filter-url.css: {}
+
+scripts:
+  js:
+    js/views-filter-url.js: {}
+  dependencies:
+  - core/jquery
+  - core/drupalSettings

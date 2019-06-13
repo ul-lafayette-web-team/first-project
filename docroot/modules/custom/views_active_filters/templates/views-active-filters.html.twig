@@ -1,0 +1,22 @@
+{#
+/**
+ * @file
+ * Default theme implementation for views active filters.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the wrapping element.
+ * - heading: Optional heading text.
+ * - filters: The filter list render array.
+ *
+ * @see template_preprocess_views_active_filters()
+ *
+ * @ingroup themeable
+ */
+#}
+{% if filters|render %}
+  <div {{ attributes }}>
+    {{ heading }}
+    {{ filters }}
+    {{ reset_button }}
+  </div>
+{% endif %}

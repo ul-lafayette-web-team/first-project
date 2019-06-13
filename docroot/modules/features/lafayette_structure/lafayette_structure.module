@@ -1,0 +1,158 @@
+<?php
+
+/**
+ * @file
+ * Contains common functionality for the site structure.
+ */
+
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function lafayette_structure_theme($existing, $type, $theme, $path) {
+  return [
+    'hero' => [
+      'variables' => [
+        'classes' => [],
+        'overlay' => FALSE,
+        'hero_type' => '',
+        'video_type' => '',
+        'image' => NULL,
+        'video' => NULL,
+        'video_poster' => NULL,
+        'title' => NULL,
+        'subtitle' => NULL,
+        'description' => NULL,
+        'link' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Hero preprocess function.
+ *
+ * @param array $vars
+ *   An associate array.
+ */
+function lafayette_structure_preprocess_hero(array &$vars) {
+  /* Hero Media */
+
+  // Media type defaults to none.
+  $media_type = 'none';
+
+  // Get the video output.
+  $video = render($vars['video']);
+  $video = trim($video);
+  $vars['video'] = $video;
+
+  // Get the image output.
+  $image = render($vars['image']);
+  $vars['image'] = $image;
+
+  // Get the media type.
+  if (!empty($video)) {
+    $media_type = 'video';
+  }
+  elseif (!empty($image)) {
+    $media_type = 'image';
+  }
+
+  $vars['media_type'] = $media_type;
+
+  /* Hero Classes */
+
+  $hero_classes = [];
+
+  // Get hero type classes.
+  if ($vars['hero_type'] == 'parallax') {
+    $hero_classes[] = 'hero--parallax';
+  }
+
+  // Get media type classes.
+  if ($media_type == 'video') {
+    // Set the hero video classes based on video type.
+    if ($vars['video_type'] == 'video') {
+      $hero_classes[] = 'hero--video';
+    }
+    elseif ($vars['video_type'] == 'iframe') {
+      $hero_classes[] = 'hero--iframe';
+    }
+    elseif ($vars['video_type'] == 'yt_player') {
+      if ($vars['hero_type'] == 'parallax') {
+        $hero_classes[] = 'hero--parallax--iframe';
+      }
+    }
+
+    // If there is an image.
+    if (!empty($image)) {
+      $hero_classes[] = 'hero--img';
+    }
+  }
+  elseif ($media_type == 'image') {
+    $hero_classes[] = 'hero--img';
+  }
+  elseif ($media_type == 'none') {
+    $hero_classes[] = 'hero--no-img';
+  }
+
+  // Add the classes var.
+  $hero_classes = array_merge($hero_classes, $vars['classes']);
+
+  $vars['hero_classes'] = implode(' ', $hero_classes);
+}
+
+/**
+ * Implements template_preprocess_node().
+ */
+function lafayette_structure_preprocess_node(&$vars) {
+  // Make the structure config available for nodes.
+  $config = lafayette_structure_get_config();
+  $vars['structure_settings'] = $config->get();
+}
+
+/**
+ * Implements template_preprocess_paragraph().
+ */
+function lafayette_structure_preprocess_paragraph(&$vars) {
+  // Make the structure config available for paragraphs.
+  $config = lafayette_structure_get_config();
+  $vars['structure_settings'] = $config->get();
+}
+
+/**
+ * Implements template_preprocess_block().
+ */
+function lafayette_structure_preprocess_block(&$vars) {
+  // Make the structure config available for blocks.
+  $config = lafayette_structure_get_config();
+  $vars['structure_settings'] = $config->get();
+}
+
+/**
+ * Implements template_preprocess_views_view().
+ */
+function lafayette_structure_preprocess_views_view(&$vars) {
+  // Make the structure config available for views.
+  $config = lafayette_structure_get_config();
+  $vars['structure_settings'] = $config->get();
+}
+
+/**
+ * Get the structure settings config.
+ */
+function lafayette_structure_get_config() {
+  return \Drupal::config('lafayette_structure.settings');
+}
+
+/**
+ * Get a structure settings config value.
+ */
+function lafayette_structure_get_config_value($config_name) {
+  $config = lafayette_structure_get_config();
+  $config_values = $config->get();
+  $config_value = isset($config_values[$config_name]) ? $config_values[$config_name] : NULL;
+  return $config_value;
+}

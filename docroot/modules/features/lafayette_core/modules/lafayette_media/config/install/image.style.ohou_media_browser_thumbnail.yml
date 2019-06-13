@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies: {  }
+name: ohou_media_browser_thumbnail
+label: 'OHOU Media Browser Thumbnail'
+effects:
+  da01cd64-e991-4620-b7f6-16ee49fee451:
+    uuid: da01cd64-e991-4620-b7f6-16ee49fee451
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 350
+      height: 200
+      anchor: center-center

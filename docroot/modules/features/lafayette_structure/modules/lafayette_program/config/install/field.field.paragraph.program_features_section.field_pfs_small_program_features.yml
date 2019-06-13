@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_pfs_small_program_features
+    - node.type.program_feature
+    - paragraphs.paragraphs_type.program_features_section
+id: paragraph.program_features_section.field_pfs_small_program_features
+field_name: field_pfs_small_program_features
+entity_type: paragraph
+bundle: program_features_section
+label: 'Small Program Features'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      program_feature: program_feature
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

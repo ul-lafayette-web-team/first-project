@@ -1,0 +1,57 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.document
+    - media.type.image
+  module:
+    - dropzonejs_eb_widget
+    - media
+name: media_library_browser
+label: 'Media Library Browser'
+display: standalone
+display_configuration:
+  path: /admin/media-library/upload
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  ad98dc89-0525-422b-92ee-2735f9492256:
+    settings:
+      form_mode: browser
+      media_type: image
+      upload_location: 'public://[date:custom:Y]-[date:custom:m]'
+      dropzone_description: 'Drop files here to upload them'
+      max_filesize: 32M
+      extensions: 'jpg jpeg gif png'
+      clientside_resize: false
+      resize_width: null
+      resize_height: null
+      resize_quality: !!float 1
+      resize_method: contain
+      thumbnail_method: contain
+      submit_text: Save
+    uuid: ad98dc89-0525-422b-92ee-2735f9492256
+    weight: 3
+    label: 'Upload images'
+    id: dropzonejs_media_entity_inline_entity_form
+  451e1cc6-62f3-49a2-9745-35bac81a1763:
+    settings:
+      form_mode: browser
+      media_type: document
+      upload_location: 'public://[date:custom:Y]-[date:custom:m]'
+      dropzone_description: 'Drop files here to upload them'
+      max_filesize: 32M
+      extensions: 'txt doc xls pdf ppt pps odt ods odp'
+      clientside_resize: false
+      resize_width: null
+      resize_height: null
+      resize_quality: !!float 1
+      resize_method: contain
+      thumbnail_method: contain
+      submit_text: Save
+    uuid: 451e1cc6-62f3-49a2-9745-35bac81a1763
+    weight: 4
+    label: 'Upload documents'
+    id: dropzonejs_media_entity_inline_entity_form

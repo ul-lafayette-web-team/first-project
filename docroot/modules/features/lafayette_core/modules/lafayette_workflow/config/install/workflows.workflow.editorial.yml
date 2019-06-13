@@ -1,0 +1,108 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.applicant_type_set
+    - node.type.culture_feature
+    - node.type.home
+    - node.type.landing_page
+    - node.type.news
+    - node.type.organization
+    - node.type.page
+    - node.type.process_page
+    - node.type.profile
+    - node.type.program
+    - node.type.program_feature
+    - node.type.program_landing
+    - node.type.tuition_fees_page
+    - node.type.webform
+  module:
+    - content_moderation
+id: editorial
+label: Editorial
+type: content_moderation
+type_settings:
+  states:
+    archived:
+      label: Archived
+      weight: 1
+      published: false
+      default_revision: true
+    draft:
+      label: Draft
+      published: false
+      default_revision: false
+      weight: -2
+    needs_review:
+      published: false
+      default_revision: false
+      label: 'Needs Review'
+      weight: -1
+    published:
+      label: Published
+      published: true
+      default_revision: true
+      weight: 0
+  transitions:
+    archive:
+      label: Archive
+      from:
+        - published
+      to: archived
+      weight: 0
+    archived_draft:
+      label: 'Restore to Draft'
+      from:
+        - archived
+      to: draft
+      weight: 1
+    archived_published:
+      label: Restore
+      from:
+        - archived
+      to: published
+      weight: 2
+    create_new_draft:
+      label: 'Create New Draft'
+      to: draft
+      weight: -4
+      from:
+        - draft
+        - published
+    draft_needs_review:
+      label: 'Ready for Review'
+      from:
+        - draft
+      to: needs_review
+      weight: -3
+    needs_review_draft:
+      label: 'Back to Draft'
+      from:
+        - needs_review
+      to: draft
+      weight: -2
+    publish:
+      label: Publish
+      to: published
+      weight: -1
+      from:
+        - draft
+        - needs_review
+        - published
+  entity_types:
+    node:
+      - applicant_type_set
+      - culture_feature
+      - home
+      - landing_page
+      - news
+      - organization
+      - page
+      - process_page
+      - profile
+      - program
+      - program_feature
+      - program_landing
+      - tuition_fees_page
+      - webform
+  default_moderation_state: draft

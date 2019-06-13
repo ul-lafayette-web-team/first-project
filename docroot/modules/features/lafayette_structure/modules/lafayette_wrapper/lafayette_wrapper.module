@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Contains functionality for the Louisiana Wrapper module.
+ */
+
+/**
+ * Implements template_preprocess_block().
+ */
+function lafayette_wrapper_preprocess_block(&$vars) {
+  if (isset($vars['content']['#block_content']) &&
+      $vars['content']['#block_content']->bundle() == 'footer_content_block') {
+    // Get the copyright year.
+    $vars['copyright_year'] = date('Y');
+  }
+}

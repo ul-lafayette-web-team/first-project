@@ -1,0 +1,4 @@
+view filter url:
+  title: 'View filter url'
+  description: 'Allow users to view and copy the full filter URL of a view.'
+  restrict access: FALSE

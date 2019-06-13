@@ -1,0 +1,51 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_gallery_items
+    - paragraphs.paragraphs_type.gallery
+    - paragraphs.paragraphs_type.gallery_item
+  module:
+    - entity_reference_revisions
+id: paragraph.gallery.field_gallery_items
+field_name: field_gallery_items
+entity_type: paragraph
+bundle: gallery
+label: 'Gallery Items'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      gallery_item: gallery_item
+    target_bundles_drag_drop:
+      gallery_item:
+        enabled: true
+        weight: 9
+      checkerboard:
+        weight: 10
+        enabled: false
+      checkerboard_item:
+        weight: 11
+        enabled: false
+      expandable_section:
+        weight: 12
+        enabled: false
+      gallery:
+        weight: 13
+        enabled: false
+      social_media_link:
+        weight: 14
+        enabled: false
+      statistic:
+        weight: 15
+        enabled: false
+      statistics_section:
+        weight: 16
+        enabled: false
+field_type: entity_reference_revisions

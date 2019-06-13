@@ -1,0 +1,40 @@
+<?php
+
+/**
+ * @file
+ * Code for OHO Alert module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function oho_alert_theme($existing, $type, $theme, $path) {
+  return [
+    'oho_alert_wrapper' => [
+      'variables' => [],
+    ],
+    'oho_alert_message' => [
+      'variables' => [
+        'message' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements template_preprocess_page().
+ */
+function oho_alert_preprocess_page(&$vars) {
+  $vars['alert_message'] = oho_alert_message_build();
+}
+
+/**
+ * Build the oho alert wrapper.
+ */
+function oho_alert_message_build() {
+  $oho_alert_wrapper = [
+    '#theme' => 'oho_alert_wrapper',
+  ];
+  $oho_alert_wrapper['#attached']['library'][] = 'oho_alert/oho_alert';
+  return $oho_alert_wrapper;
+}

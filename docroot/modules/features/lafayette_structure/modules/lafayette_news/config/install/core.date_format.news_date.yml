@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: news_date
+label: 'News Date'
+locked: false
+pattern: 'F j, Y'

@@ -1,0 +1,63 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_diff_section_diffs
+    - paragraphs.paragraphs_type.differentiator
+    - paragraphs.paragraphs_type.differentiators_section
+  module:
+    - entity_reference_revisions
+id: paragraph.differentiators_section.field_diff_section_diffs
+field_name: field_diff_section_diffs
+entity_type: paragraph
+bundle: differentiators_section
+label: Differentiators
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      differentiator: differentiator
+    target_bundles_drag_drop:
+      differentiator:
+        enabled: true
+        weight: 13
+      calendar_event_date:
+        weight: 14
+        enabled: false
+      checkerboard:
+        weight: 15
+        enabled: false
+      checkerboard_item:
+        weight: 16
+        enabled: false
+      differentiators_section:
+        weight: 17
+        enabled: false
+      expandable_item:
+        weight: 18
+        enabled: false
+      expandable_section:
+        weight: 19
+        enabled: false
+      gallery:
+        weight: 20
+        enabled: false
+      gallery_item:
+        weight: 21
+        enabled: false
+      social_media_link:
+        weight: 22
+        enabled: false
+      statistic:
+        weight: 23
+        enabled: false
+      statistics_section:
+        weight: 24
+        enabled: false
+field_type: entity_reference_revisions

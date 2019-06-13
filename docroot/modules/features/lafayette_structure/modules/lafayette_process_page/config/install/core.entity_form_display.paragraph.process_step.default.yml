@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.process_step.field_component_title
+    - paragraphs.paragraphs_type.process_step
+id: paragraph.process_step.default
+targetEntityType: paragraph
+bundle: process_step
+mode: default
+content:
+  field_component_title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

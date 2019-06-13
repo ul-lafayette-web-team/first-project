@@ -1,0 +1,36 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.content_team
+id: content_team-admin
+label: Admin
+weight: -8
+internal: false
+audience: member
+group_type: content_team
+permissions_ui: true
+permissions:
+  0: 'access content overview'
+  1: 'administer group'
+  2: 'delete group'
+  3: 'edit group'
+  4: 'view group'
+  5: 'administer members'
+  6: 'update own group_membership content'
+  7: 'leave group'
+  8: 'view group_membership content'
+  9: 'access group_node overview'
+  20: 'create group_node:page entity'
+  21: 'delete any group_node:page entity'
+  22: 'delete own group_node:page entity'
+  23: 'update any group_node:page entity'
+  24: 'update own group_node:page entity'
+  25: 'view group_node:page entity'
+  26: 'view unpublished group_node:page entity'
+  27: 'create group_node:page content'
+  28: 'delete any group_node:page content'
+  29: 'delete own group_node:page content'
+  30: 'update any group_node:page content'
+  31: 'update own group_node:page content'
+  32: 'view group_node:page content'

@@ -1,0 +1,7 @@
+name : Louisiana Structure
+type: module
+description : 'Provides the site structure config.'
+package : Louisiana
+version: VERSION
+core : 8.x
+configure: lafayette_structure.settings.form

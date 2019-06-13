@@ -1,0 +1,24 @@
+{{ breadcrumbs }}
+<h1>{{ node.title.value }}</h1>
+
+{% if sidebar_nav %}
+  <div class="cell initial-12 medium-3">
+    {{ sidebar_nav }}
+  </div>
+{% endif %}
+
+<div class="columns initial-12 medium-auto">
+  <article{{ attributes.addClass(classes) }}>
+    {% if content.field_intro_text|render %}
+      <div class="intro-text">{{ content.field_intro_text }}</div>
+    {% endif %}
+
+    <section class="clearfix">
+      {{ content.body }}
+    </section>
+  </article>
+</div>
+
+{{ content.field_process_applicant_type_set }}
+
+{{ content.field_process_steps }}

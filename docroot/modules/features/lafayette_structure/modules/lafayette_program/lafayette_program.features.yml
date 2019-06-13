@@ -1,0 +1,5 @@
+bundle: lafayette
+excluded:
+  - rabbit_hole.behavior_settings.taxonomy_vocabulary_program_degree
+  - rabbit_hole.behavior_settings.taxonomy_vocabulary_program_level
+required: true

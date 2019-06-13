@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_process_applicant_type_set
+    - node.type.applicant_type_set
+    - node.type.process_page
+id: node.process_page.field_process_applicant_type_set
+field_name: field_process_applicant_type_set
+entity_type: node
+bundle: process_page
+label: 'Applicant Type Set'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      applicant_type_set: applicant_type_set
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

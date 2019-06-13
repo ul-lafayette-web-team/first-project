@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.footer_cta_block
+    - field.field.block_content.footer_cta_block.field_fctab_cta_links
+  module:
+    - link
+id: block_content.footer_cta_block.default
+targetEntityType: block_content
+bundle: footer_cta_block
+mode: default
+content:
+  field_fctab_cta_links:
+    weight: 27
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

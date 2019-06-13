@@ -1,0 +1,60 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_app_type_set_app_types
+    - node.type.applicant_type_set
+    - paragraphs.paragraphs_type.applicant_type
+  module:
+    - entity_reference_revisions
+id: node.applicant_type_set.field_app_type_set_app_types
+field_name: field_app_type_set_app_types
+entity_type: node
+bundle: applicant_type_set
+label: 'Applicant Types'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      applicant_type: applicant_type
+    target_bundles_drag_drop:
+      applicant_type:
+        enabled: true
+        weight: 12
+      checkerboard:
+        weight: 13
+        enabled: false
+      checkerboard_item:
+        weight: 14
+        enabled: false
+      differentiator:
+        weight: 15
+        enabled: false
+      differentiators_section:
+        weight: 16
+        enabled: false
+      expandable_item:
+        weight: 17
+        enabled: false
+      expandable_section:
+        weight: 18
+        enabled: false
+      gallery:
+        weight: 19
+        enabled: false
+      gallery_item:
+        weight: 20
+        enabled: false
+      mega_menu_item:
+        weight: 21
+        enabled: false
+      social_media_link:
+        weight: 22
+        enabled: false
+field_type: entity_reference_revisions

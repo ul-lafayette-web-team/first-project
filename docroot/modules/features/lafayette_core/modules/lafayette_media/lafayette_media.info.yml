@@ -1,0 +1,30 @@
+name: 'Louisiana Media'
+type: module
+description: 'Provides a standard set of media types and media browsers.'
+package: Louisiana
+core: 8.x
+dependencies:
+  - better_exposed_filters
+  - content_moderation
+  - crop
+  - dropzonejs_eb_widget
+  - embed
+  - entity_browser
+  - entity_browser_entity_form
+  - entity_embed
+  - field
+  - file
+  - image
+  - media
+  - media_entity_instagram
+  - media_entity_twitter
+  - node
+  - path
+  - rabbit_hole
+  - smart_trim
+  - taxonomy
+  - text
+  - user
+  - video_embed_field
+  - video_embed_media
+  - views

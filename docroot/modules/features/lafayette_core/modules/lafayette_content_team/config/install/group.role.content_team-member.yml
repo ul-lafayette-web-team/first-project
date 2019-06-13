@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.content_team
+id: content_team-member
+label: Member
+weight: -100
+internal: true
+audience: member
+group_type: content_team
+permissions_ui: true
+permissions: {  }

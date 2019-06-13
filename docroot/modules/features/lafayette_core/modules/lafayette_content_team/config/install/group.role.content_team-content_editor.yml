@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.content_team
+id: content_team-content_editor
+label: 'Content Editor'
+weight: -10
+internal: false
+audience: member
+group_type: content_team
+permissions_ui: true
+permissions:
+  0: 'access content overview'
+  1: 'view group'
+  4: 'create group_node:page entity'
+  5: 'update any group_node:page entity'
+  6: 'update own group_node:page entity'
+  7: 'view group_node:page entity'
+  8: 'view unpublished group_node:page entity'
+  9: 'create group_node:page content'

@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.culture_feature.field_cf_description
+    - node.type.culture_feature
+  module:
+    - text
+    - user
+id: node.culture_feature.default
+targetEntityType: node
+bundle: culture_feature
+mode: default
+content:
+  field_cf_description:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  content_moderation_control: true
+  links: true

@@ -1,0 +1,52 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.document
+    - views.view.ohou_media_browser
+  module:
+    - dropzonejs_eb_widget
+    - media
+    - views
+name: ohou_document_browser
+label: 'OHOU Document Browser'
+display: modal
+display_configuration:
+  width: '1070'
+  height: '900'
+  link_text: 'Select document'
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  ba4d99b4-2fc3-42ce-8fca-5aa7a3753d77:
+    settings:
+      view: ohou_media_browser
+      view_display: document_browser
+      submit_text: 'Place document'
+      auto_select: false
+    uuid: ba4d99b4-2fc3-42ce-8fca-5aa7a3753d77
+    weight: 1
+    label: Library
+    id: view
+  806a4580-603d-4cbd-910b-f84c389fd976:
+    settings:
+      form_mode: browser
+      media_type: document
+      upload_location: 'public://[date:custom:Y]-[date:custom:m]'
+      dropzone_description: 'Drop files here to upload them'
+      max_filesize: 32M
+      extensions: 'txt doc xls pdf ppt pps odt ods odp'
+      clientside_resize: false
+      resize_width: null
+      resize_height: null
+      resize_quality: !!float 1
+      resize_method: contain
+      thumbnail_method: contain
+      submit_text: 'Place document'
+    uuid: 806a4580-603d-4cbd-910b-f84c389fd976
+    weight: 2
+    label: 'Upload Documents'
+    id: dropzonejs_media_entity_inline_entity_form

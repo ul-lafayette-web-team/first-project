@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: tuition_fees_page
+label: 'Tuition & Fees Page'
+type: 'canonical_entities:node'
+pattern: '[node:menu-link:parent:url:path]/[node:title]'
+selection_criteria:
+  3fe71351-5ade-408f-9174-6096d8ca64d9:
+    id: node_type
+    bundles:
+      tuition_fees_page: tuition_fees_page
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 3fe71351-5ade-408f-9174-6096d8ca64d9
+selection_logic: and
+weight: -5
+relationships: {  }

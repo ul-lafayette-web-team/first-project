@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies: {  }
+id: content_team
+label: 'Content Team'
+description: 'Used to build teams responsible for editing specific subsets of pages on the site.'
+creator_membership: true
+creator_wizard: false
+creator_roles:
+  - content_team-admin

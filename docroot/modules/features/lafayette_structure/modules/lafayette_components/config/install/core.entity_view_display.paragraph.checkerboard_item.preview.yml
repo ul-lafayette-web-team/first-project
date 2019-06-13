@@ -1,0 +1,41 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.checkerboard_item.field_component_body
+    - field.field.paragraph.checkerboard_item.field_component_caption
+    - field.field.paragraph.checkerboard_item.field_component_image
+    - field.field.paragraph.checkerboard_item.field_component_link
+    - field.field.paragraph.checkerboard_item.field_component_title
+    - field.field.paragraph.checkerboard_item.field_component_title_link
+    - field.field.paragraph.checkerboard_item.field_component_video
+    - paragraphs.paragraphs_type.checkerboard_item
+  module:
+    - text
+id: paragraph.checkerboard_item.preview
+targetEntityType: paragraph
+bundle: checkerboard_item
+mode: preview
+content:
+  field_component_body:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_component_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  field_component_caption: true
+  field_component_image: true
+  field_component_link: true
+  field_component_title_link: true
+  field_component_video: true

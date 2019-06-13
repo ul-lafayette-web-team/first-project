@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.applicant_type_set.field_app_type_set_app_types
+    - node.type.applicant_type_set
+  module:
+    - user
+id: node.applicant_type_set.teaser
+targetEntityType: node
+bundle: applicant_type_set
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_app_type_set_app_types: true

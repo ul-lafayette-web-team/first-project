@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * @file
+ * Contains functionality for the Lafayette Subsection module.
+ */
+
+/**
+ * Implements template_preprocess_group().
+ */
+function lafayette_subsection_preprocess_group(&$vars) {
+  if ($vars['group']->bundle() == 'subsection') {
+    if ($vars['view_mode'] == 'default') {
+      // Get the home page url.
+      $home_entity = $vars['group']->get('field_subsection_home')->referencedEntities();
+      $home_nid = $home_entity[0]->id();
+      $vars['home_page_url'] = \Drupal::service('path.alias_manager')->getAliasByPath("/node/$home_nid");
+
+      // Get the menu name.
+      $menu_entity = $vars['group']->get('field_subsection_menu')->referencedEntities();
+      $menu_name = $menu_entity[0]->id();
+
+      // Build the menu.
+      $group_menu = '';
+      if (\Drupal::moduleHandler()->moduleExists('oho_nav')) {
+        $group_menu = \Drupal::service('oho_nav.oho_nav_builder')->buildFixedMenuNav($menu_name, 1, 2, TRUE);
+      }
+      $vars['group_menu'] = render($group_menu);
+    }
+  }
+}

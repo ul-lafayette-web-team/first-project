@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: culture_component
+label: 'Culture Component'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

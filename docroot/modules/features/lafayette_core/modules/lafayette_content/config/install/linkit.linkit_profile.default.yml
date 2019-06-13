@@ -1,0 +1,31 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: default
+label: Default
+description: 'A default Linkit profile'
+matchers:
+  556010a3-e317-48b3-b4ed-854c10f4b950:
+    uuid: 556010a3-e317-48b3-b4ed-854c10f4b950
+    id: 'entity:node'
+    weight: 0
+    settings:
+      metadata: 'by [node:author] | [node:created:medium]'
+      bundles:
+        home: home
+        landing_page: landing_page
+        news: news
+        organization: organization
+        page: page
+        process_page: process_page
+        profile: profile
+        program: program
+        program_landing: program_landing
+        tuition_fees_page: tuition_fees_page
+        webform: webform
+      group_by_bundle: false
+      include_unpublished: false
+      substitution_type: canonical
+      limit: 100

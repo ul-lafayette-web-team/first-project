@@ -1,0 +1,14 @@
+name: 'Louisiana Content'
+type: module
+description: 'Provides content config for editors, text formats, etc.'
+package: Louisiana
+core: 8.x
+dependencies:
+  - ckeditor
+  - editor
+  - entity_embed
+  - filter
+  - linkit
+  - metatag
+  - node
+  - oho_accessibility

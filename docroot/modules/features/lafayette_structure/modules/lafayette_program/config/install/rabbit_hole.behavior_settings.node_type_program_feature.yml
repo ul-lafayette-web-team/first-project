@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.program_feature
+id: node_type_program_feature
+action: page_not_found
+allow_override: 0
+redirect: ''
+redirect_code: 301

@@ -1,0 +1,7 @@
+lafayette_structure.settings.form:
+  path: '/admin/config/content/lafayette_structure'
+  defaults:
+    _form: '\Drupal\lafayette_structure\Form\LafayetteStructureSettingsForm'
+    _title: 'Louisiana Structure Configuration'
+  requirements:
+    _permission: 'administer louisiana structure'

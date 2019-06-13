@@ -1,0 +1,40 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.program_features_section.field_component_title
+    - field.field.paragraph.program_features_section.field_pfs_large_program_feature
+    - field.field.paragraph.program_features_section.field_pfs_small_program_features
+    - paragraphs.paragraphs_type.program_features_section
+id: paragraph.program_features_section.default
+targetEntityType: paragraph
+bundle: program_features_section
+mode: default
+content:
+  field_component_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_pfs_large_program_feature:
+    weight: 1
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_pfs_small_program_features:
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: small_feature
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden: {  }

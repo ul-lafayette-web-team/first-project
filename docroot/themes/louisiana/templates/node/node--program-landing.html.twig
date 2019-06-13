@@ -1,0 +1,12 @@
+{{ breadcrumbs }}
+<h1>{{ node.title.value }}</h1>
+
+<article class="program-landing">
+  {% if content.field_intro_text|render %}
+    <div class="intro-text">{{ content.field_intro_text }}</div>
+  {% endif %}
+
+  {{ content.body }}
+</article>
+
+{{ program_listing }}

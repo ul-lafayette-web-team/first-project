@@ -1,0 +1,56 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+name: organization_listing
+label: 'Organization Listing'
+group: Organization
+description: ''
+requireAllConditions: true
+disabled: false
+conditions:
+  request_path:
+    id: request_path
+    pages: /directory
+    negate: 0
+    uuid: bd34f1f3-6fcc-46db-83e7-08ffccc45577
+    context_mapping: {  }
+reactions:
+  blocks:
+    blocks:
+      1a468b25-9f38-42ec-8871-a7f346bea6f9:
+        id: 'views_block:organization_listing-organization_listing_block'
+        label: ''
+        provider: views
+        label_display: 0
+        views_label: ''
+        items_per_page: none
+        region: content
+        weight: '5'
+        context_mapping: {  }
+        theme: oho_base
+        css_class: ''
+        unique: 0
+        context_id: organization_listing
+        uuid: 1a468b25-9f38-42ec-8871-a7f346bea6f9
+      2a438da4-cc59-4a59-90bc-b16837448b09:
+        id: 'views_block:organization_listing-organization_listing_block'
+        label: ''
+        provider: views
+        label_display: 0
+        views_label: ''
+        items_per_page: none
+        region: content
+        weight: '5'
+        context_mapping: {  }
+        theme: louisiana
+        css_class: ''
+        unique: 0
+        context_id: organization_listing
+        uuid: 2a438da4-cc59-4a59-90bc-b16837448b09
+    id: blocks
+    saved: false
+    uuid: 405de435-16e0-48a9-8cc7-21a1b9050768
+    include_default_blocks: 0
+weight: 0

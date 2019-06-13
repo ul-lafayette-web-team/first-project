@@ -1,0 +1,8 @@
+oho_alert:
+  version: VERSION
+  js:
+    js/oho_alert.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once

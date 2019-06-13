@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.applicant_type.field_component_title
+    - paragraphs.paragraphs_type.applicant_type
+id: paragraph.applicant_type.default
+targetEntityType: paragraph
+bundle: applicant_type
+mode: default
+content:
+  field_component_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

@@ -1,0 +1,6 @@
+name : OHO Nav
+type: module
+description : A module that provides a flexible menu block.
+package : OHO
+version: VERSION
+core : 8.x

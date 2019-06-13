@@ -1,0 +1,45 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.process_page.body
+    - field.field.node.process_page.field_intro_text
+    - field.field.node.process_page.field_metatags
+    - field.field.node.process_page.field_process_applicant_type_set
+    - field.field.node.process_page.field_process_steps
+    - node.type.process_page
+  module:
+    - smart_trim
+    - user
+id: node.process_page.teaser
+targetEntityType: node
+bundle: process_page
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: smart_trim
+    weight: 0
+    settings:
+      trim_length: 200
+      trim_type: chars
+      trim_suffix: ...
+      wrap_class: trimmed
+      more_text: More
+      more_class: more-link
+      summary_handler: full
+      trim_options:
+        text: true
+        trim_zero: false
+      wrap_output: false
+      more_link: false
+    third_party_settings: {  }
+    region: content
+hidden:
+  content_moderation_control: true
+  field_intro_text: true
+  field_metatags: true
+  field_process_applicant_type_set: true
+  field_process_steps: true
+  links: true

@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.full
+    - entity_browser.browser.ohou_media_browser
+  module:
+    - entity_embed
+    - media
+label: 'OHOU Media Embed'
+id: ohou_media_embed
+type_id: entity
+type_settings:
+  entity_type: media
+  bundles: {  }
+  display_plugins:
+    - 'entity_reference:media_thumbnail'
+    - 'view_mode:media.full'
+  entity_browser: ohou_media_browser
+  entity_browser_settings:
+    display_review: true
+icon_uuid: null

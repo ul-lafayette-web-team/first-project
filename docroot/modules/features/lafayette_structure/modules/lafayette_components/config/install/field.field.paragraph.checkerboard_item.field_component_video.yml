@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_component_video
+    - media.type.video
+    - paragraphs.paragraphs_type.checkerboard_item
+id: paragraph.checkerboard_item.field_component_video
+field_name: field_component_video
+entity_type: paragraph
+bundle: checkerboard_item
+label: Video
+description: 'If you input a video, you must also upload a cover image.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      video: video
+    sort:
+      field: name
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

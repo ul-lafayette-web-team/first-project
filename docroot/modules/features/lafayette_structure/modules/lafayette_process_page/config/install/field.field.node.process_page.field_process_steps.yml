@@ -1,0 +1,63 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_process_steps
+    - node.type.process_page
+    - paragraphs.paragraphs_type.process_step
+  module:
+    - entity_reference_revisions
+id: node.process_page.field_process_steps
+field_name: field_process_steps
+entity_type: node
+bundle: process_page
+label: 'Process Steps'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      process_step: process_step
+    target_bundles_drag_drop:
+      applicant_type:
+        weight: 13
+        enabled: false
+      checkerboard:
+        weight: 14
+        enabled: false
+      checkerboard_item:
+        weight: 15
+        enabled: false
+      differentiator:
+        weight: 16
+        enabled: false
+      differentiators_section:
+        weight: 17
+        enabled: false
+      expandable_item:
+        weight: 18
+        enabled: false
+      expandable_section:
+        weight: 19
+        enabled: false
+      gallery:
+        weight: 20
+        enabled: false
+      gallery_item:
+        weight: 21
+        enabled: false
+      mega_menu_item:
+        weight: 22
+        enabled: false
+      process_step:
+        enabled: true
+        weight: 23
+      social_media_link:
+        weight: 24
+        enabled: false
+field_type: entity_reference_revisions

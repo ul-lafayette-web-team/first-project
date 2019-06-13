@@ -1,0 +1,8 @@
+name: 'Views Active Filters'
+description: 'Adds a list of currently active filters to the bottom of a views form.'
+version: 8.x-1.0-beta2
+core: 8.x
+type: module
+package: Views
+dependencies:
+  - views

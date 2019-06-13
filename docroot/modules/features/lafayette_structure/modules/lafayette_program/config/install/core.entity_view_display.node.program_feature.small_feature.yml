@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.small_feature
+    - field.field.node.program_feature.field_intro_text
+    - node.type.program_feature
+  module:
+    - text
+    - user
+id: node.program_feature.small_feature
+targetEntityType: node
+bundle: program_feature
+mode: small_feature
+content:
+  field_intro_text:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  content_moderation_control: true
+  links: true

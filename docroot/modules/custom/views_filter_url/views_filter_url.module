@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * @file
+ * Views area plugin which displays the current filter URL to logged in users.
+ */
+
+/**
+ * Implements hook_views_data_alter().
+ *
+ * Adds views_filter_url as an option to views area handlers.
+ */
+function views_filter_url_views_data_alter(array &$data) {
+  $data['views']['views_filter_url'] = [
+    'title' => t('Current Filter URL'),
+    'help' => t('Displays the filter URL to logged in users.'),
+    'area' => [
+      'id' => 'views_filter_url',
+    ],
+  ];
+}

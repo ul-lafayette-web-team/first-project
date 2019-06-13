@@ -1,0 +1,59 @@
+<?php
+
+/**
+ * @file
+ * Views area plugin which displays a list of currently active exposed filters.
+ */
+
+use Drupal\views_active_filters\Plugin\views\area\ActiveFilters;
+
+/**
+ * Implements hook_views_data_alter().
+ */
+function views_active_filters_preprocess_views_view(array &$variables) {
+  if (isset($variables['view']->header['views_active_filters']) && $variables['view']->header['views_active_filters'] instanceof ActiveFilters) {
+    $variables['#attached']['library'][] = 'views_active_filters/views_active_filters';
+  }
+}
+
+/**
+ * Implements hook_views_data_alter().
+ */
+function views_active_filters_views_data_alter(array &$data) {
+  $data['views']['views_active_filters'] = [
+    'title' => t('Active Filters'),
+    'help' => t('Shows active exposed filter.'),
+    'area' => [
+      'id' => 'views_active_filters',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_theme().
+ */
+function views_active_filters_theme(array $existing, $type, $theme, $path) {
+  return [
+    'views_active_filters' => [
+      'variables' => [
+        'view' => NULL,
+        'grouped' => NULL,
+        'removable' => NULL,
+        'active_filters' => [],
+        'heading' => [],
+        'filters' => [],
+        'reset_button' => [],
+        'attributes' => [],
+      ],
+      'path' => drupal_get_path('module', 'views_active_filters') . '/templates',
+    ],
+  ];
+}
+
+/**
+ * Prepares variables for the views_active_filters template.
+ *
+ * Template: views_active_filters/templates/views-active-filters.html.twig.
+ */
+function template_preprocess_views_active_filters(&$variables) {
+}

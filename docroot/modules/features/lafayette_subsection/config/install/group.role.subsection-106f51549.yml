@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.subsection
+  enforced:
+    config:
+      - user.role.content_publisher
+id: subsection-106f51549
+label: 'Content publisher'
+weight: -7
+internal: true
+audience: outsider
+group_type: subsection
+permissions_ui: false
+permissions: {  }

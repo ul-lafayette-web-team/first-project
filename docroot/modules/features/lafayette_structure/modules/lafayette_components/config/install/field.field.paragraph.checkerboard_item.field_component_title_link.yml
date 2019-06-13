@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_component_title_link
+    - paragraphs.paragraphs_type.checkerboard_item
+  module:
+    - link
+id: paragraph.checkerboard_item.field_component_title_link
+field_name: field_component_title_link
+entity_type: paragraph
+bundle: checkerboard_item
+label: 'Title Link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

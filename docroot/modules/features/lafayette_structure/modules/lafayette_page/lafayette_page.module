@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * @file
+ * Contains functionality for the Louisiana Page module.
+ */
+
+/**
+ * Implements template_preprocess_node().
+ */
+function lafayette_page_preprocess_node(&$vars) {
+  if ($vars['node']->bundle() == 'page') {
+    if ($vars['view_mode'] == 'full') {
+      // Build the breadcrumbs.
+      $breadcrumbs = lafayette_content_get_breadcrumbs();
+      $vars['breadcrumbs'] = render($breadcrumbs);
+
+      // Build the sidebar nav.
+      $sidebar_nav = '';
+      $enable_sidebar_nav = $vars['node']->get('field_sidebar_nav')->value;
+      if ($enable_sidebar_nav && \Drupal::moduleHandler()->moduleExists('oho_nav')) {
+        $sidebar_nav = \Drupal::service('oho_nav.oho_nav_builder')->buildRelativeRootNav(1, 2, TRUE, ['nav_title_type' => 'root']);
+      }
+      $vars['sidebar_nav'] = render($sidebar_nav);
+    }
+  }
+}

@@ -1,0 +1,10 @@
+view.group_listing.node_group_listing_page:
+  title: Groups
+  route_name: view.group_listing.node_group_listing_page
+  base_route: entity.node.canonical
+  weight: 20
+view.group_listing.user_group_listing_page:
+  title: Groups
+  route_name: view.group_listing.user_group_listing_page
+  base_route: entity.user.canonical
+  weight: 20

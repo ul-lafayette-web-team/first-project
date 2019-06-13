@@ -1,0 +1,6 @@
+name : Louisiana Core
+type: module
+description : 'Core functionality for the Louisiana distribution.'
+package : Louisiana
+version: VERSION
+core : 8.x

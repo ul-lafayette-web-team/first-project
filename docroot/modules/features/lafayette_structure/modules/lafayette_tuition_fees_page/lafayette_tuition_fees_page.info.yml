@@ -1,0 +1,20 @@
+name: 'Louisiana Tuition & Fees Page'
+type: module
+core: 8.x
+dependencies:
+  - allowed_formats
+  - content_moderation
+  - field
+  - lafayette_global_fields
+  - lafayette_workflow
+  - menu_ui
+  - metatag
+  - node
+  - path
+  - pathauto
+  - rabbit_hole
+  - simple_sitemap
+  - smart_trim
+  - text
+  - user
+package: Louisiana

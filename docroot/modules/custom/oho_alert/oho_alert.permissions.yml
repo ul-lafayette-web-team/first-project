@@ -1,0 +1,3 @@
+administer oho alert:
+  title: 'Administer oho alert'
+  description: 'Allows a user to edit and enable or disable the alert message.'

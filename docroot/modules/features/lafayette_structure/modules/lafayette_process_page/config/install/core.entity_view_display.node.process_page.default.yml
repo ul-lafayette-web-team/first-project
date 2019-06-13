@@ -1,0 +1,55 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.process_page.body
+    - field.field.node.process_page.field_intro_text
+    - field.field.node.process_page.field_metatags
+    - field.field.node.process_page.field_process_applicant_type_set
+    - field.field.node.process_page.field_process_steps
+    - node.type.process_page
+  module:
+    - entity_reference_revisions
+    - text
+    - user
+id: node.process_page.default
+targetEntityType: node
+bundle: process_page
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_intro_text:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_process_applicant_type_set:
+    weight: 2
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_process_steps:
+    type: entity_reference_revisions_entity_view
+    weight: 3
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  content_moderation_control: true
+  field_metatags: true
+  links: true

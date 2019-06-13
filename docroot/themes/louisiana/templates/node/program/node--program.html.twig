@@ -1,0 +1,31 @@
+{% import "@oho_base/includes/oho-macros.html.twig" as oho_macros %}
+
+{{ breadcrumbs }}
+<h1>{{ node.title.value }}</h1>
+
+<div class="columns initial-12 medium-auto">
+  <article{{ attributes.addClass(classes) }}>
+    {% if content.field_intro_text|render %}
+      <h2>{{ 'Who is this Program For?'|t }}</h2>
+      <div class="intro-text">{{ content.field_intro_text }}</div>
+    {% endif %}
+
+    <section class="clearfix">
+      {{ content.body }}
+    </section>
+  </article>
+</div>
+
+<div class="cell initial-12 medium-3">
+  <h2>{{ node.title.value }} {{ 'At a Glance'|t }}</h2>
+
+  {% if content.field_program_degree|render %}
+    <h3>{{ 'Degree'|t }}</h3>
+    {{ content.field_program_degree }}
+  {% endif %}
+
+  <h3>{{ 'Program Tracks'|t }}</h3>
+  {{ oho_macros.field_list(content.field_program_tracks) }}
+</div>
+
+{{ content.field_program_features_section }}

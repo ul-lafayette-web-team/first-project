@@ -1,0 +1,132 @@
+<?php
+
+/**
+ * @file
+ * A module that provides an alphabet exposed filter option to views.
+ */
+
+use Drupal\better_exposed_filters\Plugin\views\exposed_form\BetterExposedFilters;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\views\Plugin\views\filter\Bundle;
+use Drupal\views\Plugin\views\filter\StringFilter;
+
+/**
+ * Implements hook_theme().
+ *
+ * Adds a custom render callback for radio buttons which allows a disabled
+ * attribute to be passed.
+ */
+function views_alpha_filter_theme(array $existing, $type, $theme, $path) {
+  if (isset($existing['bef_radios'])) {
+    return [
+      'disabled_radios' => $existing['bef_radios'],
+    ];
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Adds an alpha filter option in Better Exposed Filters to any exposed filter
+ * using the 'Starts With' operator.
+ */
+function views_alpha_filter_form_views_ui_edit_display_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
+  if (!isset($form['options']['exposed_form_options']['bef'])) {
+    return;
+  }
+
+  $bef = &$form['options']['exposed_form_options']['bef'];
+  $view = $form_state->getStorage()['view']->getExecutable();
+
+  foreach ($view->filter as $id => $filter) {
+    if ('starts' === $filter->operator) {
+      $bef[$id]['bef_format']['#options']['alpha_filter'] = t('Alpha Filter');
+      $bef[$id]['bef_format']['#validated'] = TRUE;
+    }
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Add the disabled radio options to a Views exposed form.
+ */
+function views_alpha_filter_form_views_exposed_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
+  $view = $form_state->getStorage()['view'];
+  $exposed = $view->getDisplay()->getPlugin('exposed_form');
+
+  if ($exposed instanceof BetterExposedFilters) {
+    foreach ($exposed->options['bef'] as $id => $field) {
+      if (isset($field['bef_format']) && 'alpha_filter' === $field['bef_format']) {
+        $identifier = $view->filter[$id]->options['expose']['identifier'];
+        $form[$identifier] = _views_alpha_filter_radios($view->filter['type'], $view->filter[$id]);
+      }
+    }
+  }
+}
+
+/**
+ * Generate the disabled radios options array.
+ *
+ * @param \Drupal\views\Plugin\views\filter\Bundle $filter_type
+ *   The bundle the view is filtering on.
+ * @param \Drupal\views\Plugin\views\filter\StringFilter $filter_field
+ *   The filter field to render as disabled radio buttons.
+ *
+ * @return array
+ *   Generated options array, for passing to
+ *   \Drupal\views_alpha_filter\Element\DisabledRadios.
+ */
+function _views_alpha_filter_radios(Bundle $filter_type, StringFilter $filter_field) {
+  // kint($filter_type, $filter_field);
+  // An array to hold all the possible starting letters.
+  $starting_letters = [];
+
+  // Get the first letter of nodes.
+  if ('node' === $filter_type->getEntityType()) {
+    // Variables for the query.
+    $table = $filter_field->table;
+    $field = $filter_field->realField;
+    $bundle = reset($filter_type->value);
+
+    // Figure out what column the tables are joined on. For titles, this is
+    // 'nid', and for fields it is 'entity_id'.
+    // @TODO: Investigate a way to make this more robust? Not sure if this
+    // method will work for every field type.
+    $join_column = 'title' === $field ? 'nid' : 'entity_id';
+
+    // Run the query.
+    $connection = \Drupal::database();
+    $node_query = $connection->query("SELECT LOWER(SUBSTR($table.$field, 1, 1)) AS initial FROM node LEFT JOIN $table ON node.nid = $table.$join_column WHERE node.type = '$bundle' GROUP BY initial ORDER BY initial ASC");
+    $node_result = $node_query->fetchAll();
+
+    // Put the found letters in the starting letters array.
+    if (!empty($node_result)) {
+      foreach ($node_result as $node_letter) {
+        $starting_letters[] = $node_letter->initial;
+      }
+    }
+  }
+
+  // Check all letters against the found starting letters and create the options
+  // array based on the compared values.
+  $letters = array_combine(range('a', 'z'), range('A', 'Z'));
+  foreach ($letters as $lower => &$letter) {
+    $letter = [
+      'label' => $letter,
+      'disabled' => !in_array($lower, $starting_letters),
+    ];
+  }
+
+  // Default 'All' option.
+  $default[''] = [
+    'label' => t('All'),
+    'disabled' => FALSE,
+  ];
+
+  return [
+    '#type' => 'disabled_radios',
+    '#default_value' => '',
+    '#options' => array_merge($default, $letters),
+  ];
+}

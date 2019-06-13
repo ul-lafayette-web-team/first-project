@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.content_team
+  enforced:
+    config:
+      - user.role.content_admin
+id: content_team-8af8a0e50
+label: 'Content admin'
+weight: -6
+internal: true
+audience: outsider
+group_type: content_team
+permissions_ui: false
+permissions: {  }

@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies: {  }
+id: subsection
+label: Subsection
+description: 'Used to build a subsection of the site and identify all of the subsection''s pages.'
+creator_membership: true
+creator_wizard: false
+creator_roles:
+  - subsection-admin

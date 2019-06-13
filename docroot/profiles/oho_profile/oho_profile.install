@@ -1,0 +1,69 @@
+<?php
+
+/**
+ * @file
+ * Install, update, and uninstall functions for the OHO install profile.
+ */
+
+use Drupal\user\Entity\User;
+use Drupal\user\RoleInterface;
+use Drupal\shortcut\Entity\Shortcut;
+
+/**
+ * Implements hook_install().
+ *
+ * Perform actions to set up the site for this profile.
+ *
+ * @see system_install()
+ */
+function oho_profile_install() {
+  // Set front page to "node".
+  \Drupal::configFactory()->getEditable('system.site')->set('page.front', '/node')->save(TRUE);
+
+  // Require user registration to be administrator only.
+  $user_settings = \Drupal::configFactory()->getEditable('user.settings');
+  $user_settings->set('register', USER_REGISTER_ADMINISTRATORS_ONLY)->save(TRUE);
+
+  // Assign user 1 the "administrator" role.
+  $user = User::load(1);
+  $user->roles[] = 'administrator';
+  $user->save();
+
+  // We install some menu links, so we have to rebuild the router, to ensure the
+  // menu links are valid.
+  \Drupal::service('router.builder')->rebuildIfNeeded();
+
+  // Populate the default shortcut set.
+  $shortcut = Shortcut::create([
+    'shortcut_set' => 'default',
+    'title' => t('Add content'),
+    'weight' => -20,
+    'link' => ['uri' => 'internal:/node/add'],
+  ]);
+  $shortcut->save();
+
+  $shortcut = Shortcut::create([
+    'shortcut_set' => 'default',
+    'title' => t('All content'),
+    'weight' => -19,
+    'link' => ['uri' => 'internal:/admin/content'],
+  ]);
+  $shortcut->save();
+
+  // Allow all users to use search.
+  user_role_grant_permissions(RoleInterface::ANONYMOUS_ID, ['search content']);
+  user_role_grant_permissions(RoleInterface::AUTHENTICATED_ID, ['search content']);
+
+  // Set the default and admin theme.
+  \Drupal::configFactory()
+    ->getEditable('system.theme')
+    ->set('default', 'oho_base')
+    ->set('admin', 'seven')
+    ->save(TRUE);
+
+  // Enable the admin theme.
+  \Drupal::configFactory()
+    ->getEditable('node.settings')
+    ->set('use_admin_theme', TRUE)
+    ->save(TRUE);
+}

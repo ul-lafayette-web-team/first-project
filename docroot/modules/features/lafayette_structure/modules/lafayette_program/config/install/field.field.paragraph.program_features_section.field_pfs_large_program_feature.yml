@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_pfs_large_program_feature
+    - node.type.program_feature
+    - paragraphs.paragraphs_type.program_features_section
+id: paragraph.program_features_section.field_pfs_large_program_feature
+field_name: field_pfs_large_program_feature
+entity_type: paragraph
+bundle: program_features_section
+label: 'Large Program Feature'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      program_feature: program_feature
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

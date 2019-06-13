@@ -1,0 +1,83 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.document
+    - media.type.image
+    - views.view.ohou_media_browser
+  module:
+    - dropzonejs_eb_widget
+    - entity_browser_entity_form
+    - media
+    - views
+name: ohou_media_browser
+label: 'OHOU Media Browser'
+display: iframe
+display_configuration:
+  width: '1070'
+  height: '900'
+  link_text: 'Select media'
+  auto_open: true
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  295b9655-8752-4758-bf53-2a74f2ccd1d4:
+    settings:
+      view: ohou_media_browser
+      view_display: media_browser
+      submit_text: 'Place media'
+      auto_select: false
+    uuid: 295b9655-8752-4758-bf53-2a74f2ccd1d4
+    weight: 1
+    label: Library
+    id: view
+  73690cb5-8f6b-43b3-85e3-02567ad854c4:
+    settings:
+      form_mode: browser
+      media_type: image
+      upload_location: 'public://[date:custom:Y]-[date:custom:m]'
+      dropzone_description: 'Drop files here to upload them'
+      max_filesize: 32M
+      extensions: 'jpg jpeg gif png txt doc xls pdf ppt pps odt ods odp'
+      clientside_resize: false
+      resize_width: null
+      resize_height: null
+      resize_quality: !!float 1
+      resize_method: contain
+      thumbnail_method: contain
+      submit_text: 'Place image'
+    uuid: 73690cb5-8f6b-43b3-85e3-02567ad854c4
+    weight: 2
+    label: 'Upload Images'
+    id: dropzonejs_media_entity_inline_entity_form
+  c32d30b0-ce3a-4075-a0ea-24c90fc83c7f:
+    settings:
+      entity_type: media
+      bundle: video
+      form_mode: browser
+      submit_text: 'Place video'
+    uuid: c32d30b0-ce3a-4075-a0ea-24c90fc83c7f
+    weight: 3
+    label: 'Add Videos'
+    id: entity_form
+  817914d1-aab1-4ca0-a2c3-2e37044baf6a:
+    settings:
+      form_mode: browser
+      media_type: document
+      upload_location: 'public://[date:custom:Y]-[date:custom:m]'
+      dropzone_description: 'Drop files here to upload them'
+      max_filesize: 32M
+      extensions: 'txt doc xls pdf ppt pps odt ods odp'
+      clientside_resize: false
+      resize_width: null
+      resize_height: null
+      resize_quality: !!float 1
+      resize_method: contain
+      thumbnail_method: contain
+      submit_text: 'Place document'
+    uuid: 817914d1-aab1-4ca0-a2c3-2e37044baf6a
+    weight: 4
+    label: 'Upload Documents'
+    id: dropzonejs_media_entity_inline_entity_form

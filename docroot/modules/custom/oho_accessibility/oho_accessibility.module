@@ -1,0 +1,34 @@
+<?php
+
+/**
+ * @file
+ * Code for OHO Accessibility module.
+ */
+
+/**
+ * Implements template_preprocess_field().
+ */
+function oho_accessibility_preprocess_field(&$vars) {
+  if ($vars['field_type'] == 'link') {
+    foreach ($vars['items'] as $i => $item) {
+      // If there is a target attribute.
+      if (isset($vars['items'][$i]['content']['#options']['attributes']['target'])) {
+        // If the target attribute value is _blank.
+        if ($vars['items'][$i]['content']['#options']['attributes']['target'] == '_blank') {
+          $target_aria_label = t('opens in new window');
+
+          // If the aria-label attribute already exists.
+          if (isset($vars['items'][$i]['content']['#options']['attributes']['aria-label'])) {
+            // Append the target label.
+            $aria_label = $vars['items'][$i]['content']['#options']['attributes']['aria-label'];
+            $vars['items'][$i]['content']['#options']['attributes']['aria-label'] = "$aria_label ($target_aria_label)";
+          }
+          else {
+            // Add the target label.
+            $vars['items'][$i]['content']['#options']['attributes']['aria-label'] = $target_aria_label;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * @file
+ * Contains functionality for the Louisiana Process Page module.
+ */
+
+/**
+ * Implements template_preprocess_node().
+ */
+function lafayette_process_page_preprocess_node(&$vars) {
+  if ($vars['node']->bundle() == 'process_page') {
+    if ($vars['view_mode'] == 'full') {
+      // Build the breadcrumbs.
+      $breadcrumbs = lafayette_content_get_breadcrumbs();
+      $vars['breadcrumbs'] = render($breadcrumbs);
+
+      // Build the sidebar nav.
+      $sidebar_nav = '';
+      if (\Drupal::moduleHandler()->moduleExists('oho_nav')) {
+        $sidebar_nav = \Drupal::service('oho_nav.oho_nav_builder')->buildRelativeRootNav(1, 2, TRUE, ['nav_title_type' => 'root']);
+      }
+      $vars['sidebar_nav'] = render($sidebar_nav);
+    }
+  }
+}

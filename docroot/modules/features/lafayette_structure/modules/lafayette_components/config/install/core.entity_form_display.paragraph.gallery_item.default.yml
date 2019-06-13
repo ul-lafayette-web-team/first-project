@@ -1,0 +1,59 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.ohou_video_browser
+    - field.field.paragraph.gallery_item.field_component_image
+    - field.field.paragraph.gallery_item.field_component_title
+    - field.field.paragraph.gallery_item.field_component_video
+    - paragraphs.paragraphs_type.gallery_item
+  module:
+    - entity_browser
+id: paragraph.gallery_item.default
+targetEntityType: paragraph
+bundle: gallery_item
+mode: default
+content:
+  field_component_image:
+    weight: 0
+    settings:
+      entity_browser: ohou_image_browser
+      field_widget_display: rendered_entity
+      field_widget_remove: true
+      field_widget_replace: true
+      open: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: default
+      field_widget_edit: false
+    third_party_settings: {  }
+    type: entity_browser_entity_reference
+    region: content
+  field_component_title:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_component_video:
+    weight: 1
+    settings:
+      entity_browser: ohou_video_browser
+      field_widget_display: rendered_entity
+      field_widget_remove: true
+      field_widget_replace: true
+      open: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: default
+      field_widget_edit: false
+    third_party_settings: {  }
+    type: entity_browser_entity_reference
+    region: content
+hidden:
+  created: true
+  moderation_state: true
+  status: true
+  uid: true

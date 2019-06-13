@@ -1,0 +1,6 @@
+'view node groups tab':
+  title: 'View node groups tab'
+  description: 'Allows a user to view the groups tab on a node.'
+'view user groups tab':
+  title: 'View user groups tab'
+  description: 'Allows a user to view the groups tab on a user.'

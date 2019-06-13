@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @file
+ * Contains functionality for the Lafayette Program Landing module.
+ */
+
+/**
+ * Implements template_preprocess_node().
+ */
+function lafayette_program_landing_preprocess_node(&$vars) {
+  if ($vars['node']->bundle() == 'program_landing') {
+    if ($vars['view_mode'] == 'full') {
+      // Build the breadcrumbs.
+      $breadcrumbs = lafayette_content_get_breadcrumbs();
+      $vars['breadcrumbs'] = render($breadcrumbs);
+
+      // Get the program listing view.
+      $program_listing = views_embed_view('program_listing', 'program_listing_embed');
+      $vars['program_listing'] = render($program_listing);
+    }
+  }
+}

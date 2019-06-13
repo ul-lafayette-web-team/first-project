@@ -1,0 +1,34 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.tuition_fees_page.body
+    - field.field.node.tuition_fees_page.field_intro_text
+    - field.field.node.tuition_fees_page.field_metatags
+    - node.type.tuition_fees_page
+  module:
+    - text
+    - user
+id: node.tuition_fees_page.default
+targetEntityType: node
+bundle: tuition_fees_page
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_intro_text:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  content_moderation_control: true
+  field_metatags: true
+  links: true

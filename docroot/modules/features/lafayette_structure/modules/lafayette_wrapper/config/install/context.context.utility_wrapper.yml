@@ -1,0 +1,39 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+name: utility_wrapper
+label: 'Utility Wrapper'
+group: Wrapper
+description: ''
+requireAllConditions: true
+disabled: false
+conditions:
+  request_path:
+    id: request_path
+    pages: "/search\r\n/search/*\r\n/user\r\n/user/*"
+    negate: 0
+    uuid: 82e5e6c1-7a77-44da-ba2a-30df5b60941b
+    context_mapping: {  }
+reactions:
+  blocks:
+    blocks:
+      646eeb2e-dfcb-4db7-88d9-2ac637ec67f2:
+        id: page_title_block
+        label: 'Page title'
+        provider: core
+        label_display: 0
+        region: title
+        weight: '0'
+        context_mapping: {  }
+        theme: oho_base
+        css_class: ''
+        unique: 0
+        context_id: utility_wrapper
+        uuid: 646eeb2e-dfcb-4db7-88d9-2ac637ec67f2
+    id: blocks
+    saved: false
+    uuid: c94cffe9-e82e-44f1-af3e-1cf0babf55c6
+    include_default_blocks: 0
+weight: 0

@@ -1,0 +1,125 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+name: global_wrapper
+label: 'Global Wrapper'
+group: Wrapper
+description: ''
+requireAllConditions: true
+disabled: false
+conditions:
+  current_theme:
+    id: current_theme
+    theme: louisiana
+    negate: 0
+    uuid: 8b5b13c4-2261-4b6d-b647-a25a2dcb10a5
+    context_mapping: {  }
+reactions:
+  blocks:
+    blocks:
+      b2715d5f-d344-4ad0-bf5d-1517f2276bec:
+        id: 'menu_block:main'
+        label: 'Main Menu'
+        provider: menu_block
+        label_display: 0
+        level: '1'
+        depth: '2'
+        expand: 1
+        parent: 'main:'
+        suggestion: main
+        region: primary_nav
+        weight: '0'
+        context_mapping: {  }
+        theme: oho_base
+        css_class: ''
+        unique: 1
+        context_id: global_wrapper
+        uuid: b2715d5f-d344-4ad0-bf5d-1517f2276bec
+      42f9eae0-8e86-4395-ba5d-ecceb3a4c430:
+        id: 'menu_block:audience-menu'
+        label: 'Audience Menu'
+        provider: menu_block
+        label_display: 0
+        level: '1'
+        depth: '1'
+        expand: 0
+        parent: 'audience-menu:'
+        suggestion: audience_menu
+        region: secondary_nav
+        weight: '-1'
+        context_mapping: {  }
+        theme: oho_base
+        css_class: ''
+        unique: 1
+        context_id: global_wrapper
+        uuid: 42f9eae0-8e86-4395-ba5d-ecceb3a4c430
+      51343dc0-b321-43dd-8c10-32b7b0128ea4:
+        id: 'menu_block:utility-menu'
+        label: 'Utility Menu'
+        provider: menu_block
+        label_display: 0
+        level: '1'
+        depth: '1'
+        expand: 0
+        parent: 'utility-menu:'
+        suggestion: utility_menu
+        region: secondary_nav
+        weight: '-2'
+        context_mapping: {  }
+        theme: oho_base
+        css_class: ''
+        unique: 1
+        context_id: global_wrapper
+        uuid: 51343dc0-b321-43dd-8c10-32b7b0128ea4
+      4e064ca6-ae1a-4fe1-826d-eff5c240737e:
+        id: search_form_block
+        label: 'Search form'
+        provider: search
+        label_display: 0
+        region: secondary_nav
+        weight: '0'
+        context_mapping: {  }
+        theme: oho_base
+        css_class: ''
+        unique: 0
+        context_id: global_wrapper
+        uuid: 4e064ca6-ae1a-4fe1-826d-eff5c240737e
+      347448c1-83e3-4ef5-bcae-2ad96cabeb6e:
+        id: 'block_content:fb923d5c-6968-4ce2-919b-5a47bb023119'
+        label: 'Footer CTA Block'
+        provider: block_content
+        label_display: 0
+        status: true
+        info: ''
+        view_mode: full
+        region: footer_upper
+        weight: '0'
+        context_mapping: {  }
+        theme: louisiana
+        css_class: ''
+        unique: 0
+        context_id: global_wrapper
+        uuid: 347448c1-83e3-4ef5-bcae-2ad96cabeb6e
+      5ee07acd-4edc-4895-ba75-9bec4b27d390:
+        id: 'block_content:fde9e22e-b681-427e-b853-dc45c0136ceb'
+        label: 'Footer Content Block'
+        provider: block_content
+        label_display: 0
+        status: true
+        info: ''
+        view_mode: full
+        region: footer_lower
+        weight: '0'
+        context_mapping: {  }
+        theme: louisiana
+        css_class: ''
+        unique: 0
+        context_id: global_wrapper
+        uuid: 5ee07acd-4edc-4895-ba75-9bec4b27d390
+    id: blocks
+    saved: false
+    uuid: 291cc4cd-2193-4daa-95ce-b933ffe2330b
+    include_default_blocks: 0
+weight: 0

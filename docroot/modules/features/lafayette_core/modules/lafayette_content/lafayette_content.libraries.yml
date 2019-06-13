@@ -1,0 +1,10 @@
+field_group_validation:
+  js:
+    js/lafayette_content.field_group_validation.js: {}
+  dependencies:
+    - core/jquery
+
+paragraphs_admin_css:
+  css:
+    theme:
+      css/lafayette_content.paragraphs_admin.css: {}

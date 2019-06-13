@@ -1,0 +1,64 @@
+<?php
+
+/**
+ * @file
+ * Contains functionality for the Louisiana News module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\Element\PathElement;
+
+/**
+ * Implements template_preprocess_node().
+ */
+function lafayette_news_preprocess_node(&$vars) {
+  if ($vars['node']->bundle() == 'news') {
+    // Get the news tag term links.
+    $vars['news_tags'] =
+      lafayette_content_build_entity_field_links(
+        $vars['node'],
+        'field_news_tags',
+        lafayette_structure_get_config_value('news_listing_url'),
+        'tag'
+      );
+
+    if ($vars['view_mode'] == 'full') {
+      // Get the news tag ids as a comma-delimited string.
+      $news_tags = $vars['node']->get('field_news_tags')->referencedEntities();
+      $tags = [];
+      foreach ($news_tags as $tag) {
+        $tags[] = $tag->id();
+      }
+      $news_tags = implode('+', $tags);
+
+      // Get the related news view.
+      $args = [$vars['node']->id(), $news_tags];
+      $related_news = lafayette_embed_view('news', 'news_related_news_embed', $args);
+      $vars['related_news'] = render($related_news);
+    }
+  }
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function lafayette_news_form_lafayette_structure_settings_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Get the structure config.
+  $config = lafayette_structure_get_config();
+
+  // Add the news settings group.
+  $form['news'] = [
+    '#type' => 'details',
+    '#title' => t('News Settings'),
+    '#open' => TRUE,
+  ];
+
+  // Add the news listing page url form element.
+  $form['news']['news_listing_url'] = [
+    '#type' => 'path',
+    '#convert_path' => PathElement::CONVERT_NONE,
+    '#title' => t('News Listing Url'),
+    '#description' => t('The url for the news listing page.'),
+    '#default_value' => $config->get('news_listing_url'),
+  ];
+}

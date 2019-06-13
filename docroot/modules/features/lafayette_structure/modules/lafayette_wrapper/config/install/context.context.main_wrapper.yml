@@ -1,0 +1,78 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+name: main_wrapper
+label: 'Main Wrapper'
+group: Wrapper
+description: ''
+requireAllConditions: true
+disabled: false
+conditions:
+  current_theme:
+    id: current_theme
+    theme: louisiana
+    negate: 0
+    uuid: cb19eb07-0c45-469d-9e78-bc8ac33fc4ff
+    context_mapping: {  }
+reactions:
+  blocks:
+    blocks:
+      a3177fe5-db8b-4b1a-b399-d941b4d1379a:
+        id: 'menu_block:utility-menu'
+        label: 'Utility Menu'
+        provider: menu_block
+        label_display: 0
+        level: '1'
+        depth: '1'
+        expand: 0
+        parent: 'utility-menu:'
+        suggestion: utility_menu
+        region: secondary_nav
+        weight: '0'
+        context_mapping: {  }
+        theme: louisiana
+        css_class: ''
+        unique: 1
+        context_id: main_wrapper
+        uuid: a3177fe5-db8b-4b1a-b399-d941b4d1379a
+      9f8c2c8b-e3cb-484f-9c8a-7cf582f84527:
+        id: 'menu_block:audience-menu'
+        label: 'Audience Menu'
+        provider: menu_block
+        label_display: 0
+        level: '1'
+        depth: '1'
+        expand: 0
+        parent: 'audience-menu:'
+        suggestion: audience_menu
+        region: secondary_nav
+        weight: '1'
+        context_mapping: {  }
+        theme: louisiana
+        css_class: ''
+        unique: 1
+        context_id: main_wrapper
+        uuid: 9f8c2c8b-e3cb-484f-9c8a-7cf582f84527
+      694fcb03-0bbb-48ae-859a-44d8d410e8c5:
+        id: 'block_content:ec4faafd-0468-410b-8f5f-872b511d4624'
+        label: 'Main Mega Menu Block'
+        provider: block_content
+        label_display: 0
+        status: true
+        info: ''
+        view_mode: full
+        region: primary_nav
+        weight: '0'
+        context_mapping: {  }
+        theme: louisiana
+        css_class: ''
+        unique: 0
+        context_id: main_wrapper
+        uuid: 694fcb03-0bbb-48ae-859a-44d8d410e8c5
+    id: blocks
+    saved: false
+    uuid: ffc80519-f93d-437a-81c6-71e71afd2e2d
+    include_default_blocks: 0
+weight: 0

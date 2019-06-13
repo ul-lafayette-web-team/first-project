@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.content_team
+  enforced:
+    config:
+      - user.role.content_publisher
+id: content_team-106f51549
+label: 'Content publisher'
+weight: -7
+internal: true
+audience: outsider
+group_type: content_team
+permissions_ui: false
+permissions: {  }

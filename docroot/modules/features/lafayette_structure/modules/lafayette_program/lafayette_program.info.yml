@@ -1,0 +1,34 @@
+name: 'Louisiana Program'
+type: module
+core: 8.x
+package: Louisiana
+dependencies:
+  - allowed_formats
+  - better_exposed_filters
+  - content_moderation
+  - context
+  - entity_browser
+  - entity_reference_revisions
+  - field
+  - field_group
+  - lafayette_content
+  - lafayette_global_fields
+  - lafayette_media
+  - lafayette_workflow
+  - media
+  - menu_ui
+  - metatag
+  - node
+  - paragraphs
+  - path
+  - pathauto
+  - rabbit_hole
+  - simple_sitemap
+  - smart_trim
+  - system
+  - taxonomy
+  - text
+  - user
+  - views
+  - views_active_filters
+  - views_filter_url

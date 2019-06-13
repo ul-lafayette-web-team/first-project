@@ -1,0 +1,6 @@
+name : OHO Accessibility
+type: module
+description : A module that provides accessibility improvements.
+package : OHO
+version: VERSION
+core : 8.x

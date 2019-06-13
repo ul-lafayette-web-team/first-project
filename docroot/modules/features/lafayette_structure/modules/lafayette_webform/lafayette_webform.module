@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Contains functionality for the Louisiana Webform module.
+ */
+
+/**
+ * Implements template_preprocess_node().
+ */
+function lafayette_webform_preprocess_node(&$vars) {
+  if ($vars['node']->bundle() == 'webform') {
+    if ($vars['view_mode'] == 'full') {
+      // Get the breadcrumbs.
+      $breadcrumbs = lafayette_content_get_breadcrumbs();
+      $vars['breadcrumbs'] = render($breadcrumbs);
+    }
+  }
+}

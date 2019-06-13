@@ -1,0 +1,271 @@
+<?php
+
+/**
+ * @file
+ * Contains functionality for the Louisiana Content module.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Link;
+use Drupal\Core\Url;
+use Drupal\views\Element\View;
+use Drupal\views\Views;
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function lafayette_content_form_node_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // See 'https://www.drupal.org/project/field_group/issues/2787179'.
+  $form['#attached']['library'][] = 'lafayette_content/field_group_validation';
+
+  // Add better borders around paragraph forms.
+  $form['#attached']['library'][] = 'lafayette_content/paragraphs_admin_css';
+}
+
+/**
+ * Implements hook_field_widget_multivalue_form_alter().
+ */
+function lafayette_content_field_widget_multivalue_form_alter(array &$elements, FormStateInterface $form_state, $context) {
+  // Font Awesome Icon Widget.
+  if ($context['widget']->getPluginId() == 'fontawesome_icon_widget') {
+    // Restrict access for additional settings.
+    for ($i = 0; $i < count($context['items']); $i++) {
+      foreach ($elements[$i]['settings'] as $key => $setting) {
+        // Allow only the style setting.
+        if (is_array($setting) && ($key != 'style')) {
+          $elements[$i]['settings'][$key]['#access'] = FALSE;
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_editor_js_settings_alter().
+ */
+function lafayette_content_editor_js_settings_alter(array &$settings) {
+  foreach ($settings['editor']['formats'] as &$text_format) {
+    if (isset($text_format['editorSettings']['format_tags']) && 'ckeditor' === $text_format['editor']) {
+      // Remove h1 as an allowed format.
+      $formats = explode(';', $text_format['editorSettings']['format_tags']);
+      unset($formats[array_search('h1', $formats)]);
+      $text_format['editorSettings']['format_tags'] = implode(';', $formats);
+    }
+  }
+}
+
+/**
+ * Implements hook_ckeditor_css_alter().
+ */
+function lafayette_content_ckeditor_css_alter(&$css, $editor) {
+  // Look in the active theme for the wysiwyg stylesheet that comes with
+  // the flat base to allow content editors to see their style applications
+  // visually.
+  $active_theme_name = \Drupal::config('system.theme')->get('default');
+  $handler = \Drupal::service('theme_handler');
+  $path = $handler->getTheme($active_theme_name)->getPath();
+  $path .= '/assets/css/wysiwyg.css';
+  if (file_exists($path)) {
+    $css[] = $path;
+  }
+}
+
+/**
+ * Get the breadcrumbs.
+ *
+ * @return array|null
+ *   A renderable array containing the breadcrumbs.
+ */
+function lafayette_content_get_breadcrumbs() {
+  $breadcrumbs = Drupal::service('breadcrumb')->build(Drupal::routeMatch())->toRenderable();
+  return $breadcrumbs;
+}
+
+/**
+ * Get the url of a media image.
+ *
+ * @param Drupal\Core\Entity\EntityInterface $entity
+ *   An entity.
+ * @param string $media_image_field
+ *   A field of type "Media: Image".
+ * @param string $image_style
+ *   The machine name of the desired image style.
+ *
+ * @return string
+ *   The image url.
+ */
+function lafayette_content_get_media_image_url(EntityInterface $entity, $media_image_field, $image_style) {
+  $image_url = '';
+  $media_entity = $entity->get($media_image_field)->referencedEntities();
+  if (isset($media_entity[0])) {
+    $image_item = $media_entity[0]->get('field_media_image');
+    $display_options = [
+      'label' => 'hidden',
+      'type' => 'image_url',
+      'settings' => [
+        'image_style' => $image_style,
+      ],
+    ];
+    $image_url = $image_item->view($display_options);
+    $image_url = render($image_url);
+  }
+  return $image_url;
+}
+
+/**
+ * Get the url of a media file.
+ *
+ * @param Drupal\Core\Entity\EntityInterface $entity
+ *   An entity.
+ * @param string $media_file_field
+ *   A field of type "Media: File".
+ *
+ * @return string
+ *   The file url.
+ */
+function lafayette_content_get_media_file_url(EntityInterface $entity, $media_file_field) {
+  $file_url = '';
+  $media_entity = $entity->get($media_file_field)->referencedEntities();
+  if (isset($media_entity[0])) {
+    $file_item = $media_entity[0]->get('field_media_file');
+    $display_options = [
+      'label' => 'hidden',
+      'type' => 'file_url_plain',
+    ];
+    $file_url = $file_item->view($display_options);
+    $file_url = render($file_url);
+  }
+  return $file_url;
+}
+
+/**
+ * Display entity reference field with given view mode.
+ *
+ * Get the entity's entity reference field entities and display
+ * them using the given view mode.
+ *
+ * @param Drupal\Core\Entity\EntityInterface $entity
+ *   A entity.
+ * @param string $entity_ref_field
+ *   An entity reference field.
+ * @param string $view_mode
+ *   The view mode with which to display the referenced entites.
+ *
+ * @return array
+ *   A render array.
+ */
+function lafayette_content_get_entity_ref_field_view(EntityInterface $entity, $entity_ref_field, $view_mode) {
+  $field_item_list = $entity->get($entity_ref_field);
+
+  // Get the field type.
+  $field_type = $field_item_list->getFieldDefinition()->getType();
+
+  // Get the field display type.
+  $field_display_type = 'entity_reference_entity_view';
+  if ($field_type == 'entity_reference_revisions') {
+    $field_display_type = 'entity_reference_revisions_entity_view';
+  }
+
+  // Get the field displayed with the given view mode.
+  $display_options = [
+    'label' => 'hidden',
+    'type' => $field_display_type,
+    'settings' => [
+      'view_mode' => $view_mode,
+    ],
+  ];
+  $referenced_entities = $field_item_list->view($display_options);
+
+  return $referenced_entities;
+}
+
+/**
+ * Embed a view.
+ *
+ * @param string $name
+ *   The name of the view to embed.
+ * @param string $display_id
+ *   The display id to embed.
+ * @param array $args
+ *   The arguments for the view.
+ * @param int $items_per_page
+ *   An override for items per page to display.
+ *
+ * @return array|null
+ *   A renderable array containing the view output or NULL if the display ID
+ *   of the view to be executed doesn't exist.
+ */
+function lafayette_embed_view($name, $display_id = 'default', array $args = [], $items_per_page = NULL) {
+  $view = Views::getView($name);
+  if (!$view || !$view->access($display_id)) {
+    return [];
+  }
+
+  if ($view->buildRenderable($display_id, $args)) {
+    // Set the items per page if specified.
+    if ($items_per_page !== NULL) {
+      $view->setItemsPerPage($items_per_page);
+    }
+
+    $build = $view->buildRenderable($display_id, $args);
+    // Block module expects to get a final render array, without another
+    // top-level #pre_render callback. So, here we make sure that Views'
+    // #pre_render callback has already been applied.
+    $build = View::preRenderViewElement($build);
+
+    // When view_build is empty, the actual render array output for this View
+    // is going to be empty. In that case, return just #cache, so that the
+    // render system knows the reasons (cache contexts & tags) why this Views
+    // block is empty, and can cache it accordingly.
+    if (empty($build['view_build'])) {
+      $build = ['#cache' => $build['#cache']];
+    }
+
+    // If there are no results.
+    if (empty($build['view_build']['#view']->result)) {
+      $build = ['#cache' => $build['#cache']];
+    }
+  }
+
+  return $build;
+}
+
+/**
+ * Build an array of filtered links.
+ *
+ * Build an array of links for an entity field linking to a url
+ * with a query, e.g. listing page.
+ *
+ * @param string $entity
+ *   The parent entity.
+ * @param string $field
+ *   The field with which to make the links.
+ * @param string $base_url
+ *   The base url for the link.
+ * @param string $param
+ *   The query parameter for the link.
+ * @param string $link_classes
+ *   Optional classes to apply to the link.
+ *
+ * @return array|null
+ *   An array of links.
+ */
+function lafayette_content_build_entity_field_links($entity, $field, $base_url, $param, $link_classes = '') {
+  $links = [];
+  $path = "internal:$base_url";
+  $entities = $entity->get($field)->referencedEntities();
+  foreach ($entities as $entity) {
+    $options = [
+      'attributes' => [
+        'class' => $link_classes,
+      ],
+      'query' => [
+        $param => $entity->id(),
+      ],
+    ];
+    $url = Url::fromUri($path, $options);
+    $links[] = Link::fromTextAndUrl($entity->label(), $url);
+  }
+  return $links;
+}

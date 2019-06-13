@@ -1,0 +1,14 @@
+oho_alert.settings.form:
+  path: '/admin/config/system/oho_alert'
+  defaults:
+    _form: '\Drupal\oho_alert\Form\OHOAlertSettingsForm'
+    _title: 'OHO Alert Configuration'
+  requirements:
+    _permission: 'administer oho alert'
+
+oho_alert.alert_message:
+  path: '/oho-alert/alert-message'
+  defaults:
+    _controller: '\Drupal\oho_alert\Controller\OHOAlertController::alertMessage'
+  requirements:
+    _permission: 'access content'

@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_component_icon
+    - paragraphs.paragraphs_type.social_media_link
+  module:
+    - fontawesome
+id: paragraph.social_media_link.field_component_icon
+field_name: field_component_icon
+entity_type: paragraph
+bundle: social_media_link
+label: Icon
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: fontawesome_icon

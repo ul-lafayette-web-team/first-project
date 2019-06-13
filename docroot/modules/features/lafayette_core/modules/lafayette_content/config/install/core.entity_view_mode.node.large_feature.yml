@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.large_feature
+label: 'Large Feature'
+targetEntityType: node
+cache: true

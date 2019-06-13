@@ -1,0 +1,67 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+name: base_wrapper
+label: 'Base Wrapper'
+group: Wrapper
+description: ''
+requireAllConditions: true
+disabled: false
+conditions:
+  current_theme:
+    id: current_theme
+    theme: oho_base
+    negate: 0
+    uuid: c06b957d-4d6c-4d77-b23e-59b204d50a34
+    context_mapping: {  }
+reactions:
+  blocks:
+    blocks:
+      84a5617a-4147-4b70-975a-768b8aa0fd51:
+        id: system_messages_block
+        label: Messages
+        provider: system
+        label_display: 0
+        region: highlighted
+        weight: '-1'
+        context_mapping: {  }
+        theme: oho_base
+        unique: 0
+        uuid: 84a5617a-4147-4b70-975a-768b8aa0fd51
+        context_id: base_wrapper
+        css_class: ''
+      b881863e-ad62-4c83-b0c2-1315d944239d:
+        id: help_block
+        label: Help
+        provider: help
+        label_display: 0
+        region: highlighted
+        weight: '0'
+        context_mapping: {  }
+        theme: oho_base
+        unique: 0
+        uuid: b881863e-ad62-4c83-b0c2-1315d944239d
+        context_id: base_wrapper
+        css_class: ''
+      57d7992b-1d9d-44b7-94b7-9686664cc737:
+        id: local_tasks_block
+        label: Tabs
+        provider: core
+        label_display: 0
+        primary: 1
+        secondary: 1
+        region: highlighted
+        weight: '1'
+        context_mapping: {  }
+        theme: oho_base
+        unique: 0
+        uuid: 57d7992b-1d9d-44b7-94b7-9686664cc737
+        context_id: base_wrapper
+        css_class: ''
+    id: blocks
+    saved: false
+    uuid: b697fdec-49b7-415b-9551-66d45475f51b
+    include_default_blocks: 0
+weight: 0

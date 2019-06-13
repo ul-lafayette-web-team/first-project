@@ -1,0 +1,57 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.differentiators_section.field_component_body
+    - field.field.paragraph.differentiators_section.field_component_link
+    - field.field.paragraph.differentiators_section.field_component_title
+    - field.field.paragraph.differentiators_section.field_diff_section_diffs
+    - paragraphs.paragraphs_type.differentiators_section
+  module:
+    - link
+    - paragraphs
+    - text
+id: paragraph.differentiators_section.default
+targetEntityType: paragraph
+bundle: differentiators_section
+mode: default
+content:
+  field_component_body:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_component_link:
+    weight: 3
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_component_title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_diff_section_diffs:
+    type: entity_reference_paragraphs
+    weight: 2
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: preview
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: differentiator
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  status: true

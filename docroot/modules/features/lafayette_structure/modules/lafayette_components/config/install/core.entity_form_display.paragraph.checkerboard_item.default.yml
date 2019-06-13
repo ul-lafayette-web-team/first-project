@@ -1,0 +1,105 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.ohou_video_browser
+    - field.field.paragraph.checkerboard_item.field_component_body
+    - field.field.paragraph.checkerboard_item.field_component_caption
+    - field.field.paragraph.checkerboard_item.field_component_image
+    - field.field.paragraph.checkerboard_item.field_component_link
+    - field.field.paragraph.checkerboard_item.field_component_title
+    - field.field.paragraph.checkerboard_item.field_component_title_link
+    - field.field.paragraph.checkerboard_item.field_component_video
+    - paragraphs.paragraphs_type.checkerboard_item
+  module:
+    - entity_browser
+    - link
+    - link_attributes
+    - text
+id: paragraph.checkerboard_item.default
+targetEntityType: paragraph
+bundle: checkerboard_item
+mode: default
+content:
+  field_component_body:
+    weight: 5
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_component_caption:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_component_image:
+    weight: 0
+    settings:
+      entity_browser: ohou_image_browser
+      field_widget_display: rendered_entity
+      field_widget_edit: true
+      field_widget_remove: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: default
+      field_widget_replace: false
+      open: false
+    third_party_settings: {  }
+    type: entity_browser_entity_reference
+    region: content
+  field_component_link:
+    weight: 6
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+      enabled_attributes:
+        target: true
+        rel: true
+        aria-label: true
+        id: false
+        name: false
+        class: false
+        accesskey: false
+    third_party_settings: {  }
+    type: link_attributes
+    region: content
+  field_component_title:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_component_title_link:
+    weight: 4
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_component_video:
+    weight: 1
+    settings:
+      entity_browser: ohou_video_browser
+      field_widget_display: rendered_entity
+      field_widget_edit: true
+      field_widget_remove: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: default
+      field_widget_replace: false
+      open: false
+    third_party_settings: {  }
+    type: entity_browser_entity_reference
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

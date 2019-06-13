@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.tweet.field_media_instagram
+    - field.field.media.tweet.field_media_tags
+    - media.type.tweet
+  module:
+    - media_entity_twitter
+id: media.tweet.default
+targetEntityType: media
+bundle: tweet
+mode: default
+content:
+  field_media_instagram:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: twitter_embed
+    region: content
+hidden:
+  created: true
+  field_media_tags: true
+  name: true
+  thumbnail: true
+  uid: true

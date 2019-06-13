@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.program_track
+id: taxonomy_vocabulary_program_track
+action: page_not_found
+allow_override: 0
+redirect: ''
+redirect_code: 301

@@ -1,0 +1,24 @@
+name: 'Louisiana Landing Page'
+type: module
+core: 8.x
+package: Louisiana
+dependencies:
+  - allowed_formats
+  - content_moderation
+  - entity_browser
+  - field
+  - field_group
+  - lafayette_global_fields
+  - lafayette_media
+  - lafayette_workflow
+  - media
+  - menu_ui
+  - metatag
+  - node
+  - path
+  - pathauto
+  - rabbit_hole
+  - simple_sitemap
+  - smart_trim
+  - text
+  - user

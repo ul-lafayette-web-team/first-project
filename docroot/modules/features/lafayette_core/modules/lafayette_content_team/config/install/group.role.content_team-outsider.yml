@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.content_team
+id: content_team-outsider
+label: Outsider
+weight: -101
+internal: true
+audience: outsider
+group_type: content_team
+permissions_ui: true
+permissions: {  }

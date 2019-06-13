@@ -1,0 +1,56 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+name: profile_listing
+label: 'Profile Listing'
+group: Profile
+description: ''
+requireAllConditions: true
+disabled: false
+conditions:
+  request_path:
+    id: request_path
+    pages: /directory/people
+    negate: 0
+    uuid: f9898c0f-77a6-4307-900f-fbe837c508d3
+    context_mapping: {  }
+reactions:
+  blocks:
+    blocks:
+      c00a555c-b1ff-4602-bb6b-6f45e5867f08:
+        id: 'views_block:profile_listing-profile_listing_block'
+        label: ''
+        provider: views
+        label_display: 0
+        views_label: ''
+        items_per_page: none
+        region: content
+        weight: '5'
+        context_mapping: {  }
+        theme: oho_base
+        css_class: ''
+        unique: 0
+        context_id: profile_listing
+        uuid: c00a555c-b1ff-4602-bb6b-6f45e5867f08
+      824feb3d-90dc-46ca-87dd-7ca074748440:
+        id: 'views_block:profile_listing-profile_listing_block'
+        label: ''
+        provider: views
+        label_display: 0
+        views_label: ''
+        items_per_page: none
+        region: content
+        weight: '5'
+        context_mapping: {  }
+        theme: louisiana
+        css_class: ''
+        unique: 0
+        context_id: profile_listing
+        uuid: 824feb3d-90dc-46ca-87dd-7ca074748440
+    id: blocks
+    saved: false
+    uuid: 7f0d500c-e049-4880-851c-ee80f55dd814
+    include_default_blocks: 0
+weight: 0

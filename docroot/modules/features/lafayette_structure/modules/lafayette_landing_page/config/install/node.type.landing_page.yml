@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - audience-menu
+      - main
+      - utility-menu
+    parent: 'main:'
+name: 'Landing Page'
+type: landing_page
+description: 'Used for site landing pages.'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

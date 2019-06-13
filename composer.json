@@ -1,0 +1,139 @@
+{
+    "name": "oho/oho-university",
+    "type": "project",
+    "description": "Project template for Drupal 8 sites built with the OHO University distribution.",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": {
+        "drupal": {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        "assets": {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    },
+    "require": {
+        "bower-asset/dropzone": "^5.1",
+        "composer/installers": "^1.0",
+        "cweagans/composer-patches": "^1.6.0",
+        "drupal-composer/drupal-scaffold": "^2.5.0",
+        "drupal/admin_toolbar": "^1.27",
+        "drupal/allowed_formats": "^1.1",
+        "drupal/auto_entitylabel": "^2.1@beta",
+        "drupal/better_exposed_filters": "^3.0@alpha",
+        "drupal/config_update": "^1.6",
+        "drupal/console": "^1.0.2",
+        "drupal/context": "^4.0@beta",
+        "drupal/core": "^8.6",
+        "drupal/crop": "^2.0",
+        "drupal/ctools": "^3.2",
+        "drupal/date_popup": "^1.0",
+        "drupal/diff": "^1.0@RC",
+        "drupal/dropzonejs": "^2.0",
+        "drupal/editor_advanced_link": "^1.4",
+        "drupal/embed": "^1.0",
+        "drupal/entity_browser": "^2.1",
+        "drupal/entity_embed": "^1.0",
+        "drupal/entity_reference_revisions": "^1.6",
+        "drupal/environment_indicator": "^3.5",
+        "drupal/eu_cookie_compliance": "^1.2",
+        "drupal/features": "^3.8",
+        "drupal/field_group": "^3.0",
+        "drupal/focal_point": "^1.0",
+        "drupal/fontawesome": "^2.12",
+        "drupal/group": "^1.0",
+        "drupal/honeypot": "^1.29",
+        "drupal/image_url_formatter": "^1.0@beta",
+        "drupal/inline_entity_form": "^1.0",
+        "drupal/link_attributes": "^1.5",
+        "drupal/linkit": "^5.0",
+        "drupal/masquerade": "^2.0",
+        "drupal/media_entity_generic": "^1.0",
+        "drupal/media_entity_instagram": "^2.0",
+        "drupal/media_entity_twitter": "^2.0",
+        "drupal/media_responsive_thumbnail": "^1.0",
+        "drupal/menu_block": "^1.5",
+        "drupal/metatag": "^1.8",
+        "drupal/module_filter": "^3.1",
+        "drupal/paragraphs": "^1.6",
+        "drupal/pathauto": "^1.3",
+        "drupal/rabbit_hole": "^1.0@beta",
+        "drupal/redirect": "^1.3",
+        "drupal/search_exclude": "^1.1",
+        "drupal/shield": "^1.2",
+        "drupal/simple_sitemap": "^3.2",
+        "drupal/smart_trim": "^1.1",
+        "drupal/token": "^1.5",
+        "drupal/twig_field_value": "^1.2",
+        "drupal/video_embed_field": "^2.0",
+        "drupal/view_unpublished": "^1.0@alpha",
+        "drupal/webform": "^5.1",
+        "drush/drush": "8.*",
+        "oomphinc/composer-installers-extender": "^1.1"
+    },
+    "require-dev": {
+        "drupal/devel": "^2.0",
+        "drupal/stage_file_proxy": "^1.0@alpha"
+    },
+    "extra": {
+        "enable-patching": true,
+        "installer-types": [
+            "bower-asset",
+            "npm-asset"
+        ],
+        "installer-paths": {
+            "docroot/core": [
+                "type:drupal-core"
+            ],
+            "docroot/libraries/{$name}": [
+                "type:drupal-library",
+                "type:bower-asset",
+                "type:npm-asset"
+            ],
+            "docroot/modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "docroot/profiles/contrib/{$name}": [
+                "type:drupal-profile"
+            ],
+            "docroot/themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ],
+            "drush/contrib/{$name}": [
+                "type:drupal-drush"
+            ]
+        },
+        "drupal-scaffold": {
+            "initial": {
+                "sites/default/default.services.yml": "sites/default/services.yml",
+                "sites/default/default.settings.php": "sites/default/settings.php"
+            },
+            "excludes": [
+                ".htaccess",
+                "sites/development.services.yml",
+                "docroot/sites/development.services.yml"
+            ]
+        },
+        "patches": {
+            "drupal/entity_embed": {
+                "Image entities/fields embedded using Entity Embed cannot be linked in CKEditor": "https://www.drupal.org/files/issues/2018-09-17/entity-embed-link-2511404-68.patch"
+            },
+            "drupal/metatag": {
+                "Merge special page metatags with node pages": "https://www.drupal.org/files/issues/2018-09-19/metatag-merge-node-special-pages_2949963-15.patch"
+            },
+            "drupal/smart_trim": {
+                "Remove extra spaces after HTML stripping": "https://www.drupal.org/files/issues/2018-08-28/0001-Fixing-extra-space-characters-after-HTML-stripping.patch",
+                "Additional options checkbox do not appear to save": "https://www.drupal.org/files/issues/2018-05-04/2941492-4.patch"
+            }
+        }
+    },
+    "conflict": {
+        "drupal/core": "7.*"
+    },
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true
+    }
+}

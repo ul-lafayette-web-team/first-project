@@ -1,0 +1,12 @@
+name: 'Louisiana Content Team'
+type: module
+core: 8.x
+dependencies:
+  - field
+  - gnode
+  - group
+  - node
+  - lafayette_page
+  - path
+  - user
+package: 'Louisiana'

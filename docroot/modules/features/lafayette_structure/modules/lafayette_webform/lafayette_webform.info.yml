@@ -1,0 +1,21 @@
+name: 'Louisiana Webform'
+type: module
+core: 8.x
+package: Louisiana
+dependencies:
+  - allowed_formats
+  - content_moderation
+  - field
+  - lafayette_global_fields
+  - lafayette_workflow
+  - menu_ui
+  - metatag
+  - node
+  - path
+  - pathauto
+  - rabbit_hole
+  - simple_sitemap
+  - smart_trim
+  - text
+  - user
+  - webform

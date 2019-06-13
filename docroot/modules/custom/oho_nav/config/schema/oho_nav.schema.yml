@@ -1,0 +1,22 @@
+block.settings.oho_menu_block:*:
+  type: block_settings
+  label: 'OHO Menu Block'
+  mapping:
+    nav_type:
+      type: string
+      label: 'Nav type'
+    level:
+      type: integer
+      label: 'Starting or relative level'
+    depth:
+      type: integer
+      label: 'Maximum number of levels'
+    expand:
+      type: boolean
+      label: 'Expand all menu links'
+    title_type:
+      type: string
+      label: 'Title type'
+    title_level:
+      type: integer
+      label: 'Title level'

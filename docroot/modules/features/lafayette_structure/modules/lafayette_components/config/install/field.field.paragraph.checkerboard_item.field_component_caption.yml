@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_component_caption
+    - paragraphs.paragraphs_type.checkerboard_item
+id: paragraph.checkerboard_item.field_component_caption
+field_name: field_component_caption
+entity_type: paragraph
+bundle: checkerboard_item
+label: Caption
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

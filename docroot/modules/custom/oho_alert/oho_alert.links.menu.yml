@@ -1,0 +1,5 @@
+oho_alert.admin:
+  title: 'OHO Alert'
+  description: 'Configure and activate a sitewide alert message.'
+  parent: system.admin_config_system
+  route_name: oho_alert.settings.form

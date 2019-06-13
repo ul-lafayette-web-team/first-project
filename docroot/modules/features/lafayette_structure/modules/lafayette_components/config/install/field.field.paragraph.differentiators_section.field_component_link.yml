@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_component_link
+    - paragraphs.paragraphs_type.differentiators_section
+  module:
+    - link
+id: paragraph.differentiators_section.field_component_link
+field_name: field_component_link
+entity_type: paragraph
+bundle: differentiators_section
+label: Link
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

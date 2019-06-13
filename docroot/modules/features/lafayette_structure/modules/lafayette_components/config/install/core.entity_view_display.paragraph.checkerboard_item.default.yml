@@ -1,0 +1,87 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.checkerboard_item.field_component_body
+    - field.field.paragraph.checkerboard_item.field_component_caption
+    - field.field.paragraph.checkerboard_item.field_component_image
+    - field.field.paragraph.checkerboard_item.field_component_link
+    - field.field.paragraph.checkerboard_item.field_component_title
+    - field.field.paragraph.checkerboard_item.field_component_title_link
+    - field.field.paragraph.checkerboard_item.field_component_video
+    - paragraphs.paragraphs_type.checkerboard_item
+  module:
+    - link
+    - media
+    - text
+id: paragraph.checkerboard_item.default
+targetEntityType: paragraph
+bundle: checkerboard_item
+mode: default
+content:
+  field_component_body:
+    weight: 5
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_component_caption:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_component_image:
+    type: media_thumbnail
+    weight: 0
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    region: content
+  field_component_link:
+    type: link
+    weight: 6
+    region: content
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+  field_component_title:
+    weight: 3
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_component_title_link:
+    weight: 4
+    label: hidden
+    settings:
+      trim_length: null
+      url_only: true
+      url_plain: true
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_component_video:
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: small
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden: {  }

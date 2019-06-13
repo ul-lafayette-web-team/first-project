@@ -1,0 +1,56 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+name: news_listing
+label: 'News/Story Listing'
+group: News/Story
+description: ''
+requireAllConditions: true
+disabled: false
+conditions:
+  request_path:
+    id: request_path
+    pages: /news
+    negate: 0
+    uuid: e6389856-5163-4c2a-9b97-12fafcb118b6
+    context_mapping: {  }
+reactions:
+  blocks:
+    blocks:
+      6bd0f655-c79d-48ba-b963-6aff55a0c0f6:
+        id: 'views_block:news_listing-news_listing_block'
+        label: ''
+        provider: views
+        label_display: 0
+        views_label: ''
+        items_per_page: none
+        region: content
+        weight: '5'
+        context_mapping: {  }
+        theme: oho_base
+        css_class: ''
+        unique: 0
+        context_id: news_listing
+        uuid: 6bd0f655-c79d-48ba-b963-6aff55a0c0f6
+      42823518-74fc-4bad-9cbb-5e48072829a9:
+        id: 'views_block:news_listing-news_listing_block'
+        label: ''
+        provider: views
+        label_display: 0
+        views_label: ''
+        items_per_page: none
+        region: content
+        weight: '5'
+        context_mapping: {  }
+        theme: louisiana
+        css_class: ''
+        unique: 0
+        context_id: news_listing
+        uuid: 42823518-74fc-4bad-9cbb-5e48072829a9
+    id: blocks
+    saved: false
+    uuid: 05b99a46-e6b2-43a5-b29f-3fcd313f1ee1
+    include_default_blocks: 0
+weight: 0

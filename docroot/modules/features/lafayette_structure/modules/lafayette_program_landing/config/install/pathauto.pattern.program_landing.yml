@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: program_landing
+label: 'Program Landing'
+type: 'canonical_entities:node'
+pattern: '[node:menu-link:parent:url:path]/[node:title]'
+selection_criteria:
+  e72f694d-5859-47af-a180-212bd5aaf4a7:
+    id: node_type
+    bundles:
+      program_landing: program_landing
+    negate: false
+    context_mapping:
+      node: node
+    uuid: e72f694d-5859-47af-a180-212bd5aaf4a7
+selection_logic: and
+weight: -5
+relationships: {  }

@@ -1,0 +1,74 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.differentiator.field_component_icon
+    - field.field.paragraph.differentiator.field_component_image
+    - field.field.paragraph.differentiator.field_component_subtitle
+    - field.field.paragraph.differentiator.field_component_title
+    - field.field.paragraph.differentiator.field_component_title_link
+    - field.field.paragraph.differentiator.field_differentiator_value
+    - paragraphs.paragraphs_type.differentiator
+  module:
+    - fontawesome
+    - link
+    - media
+id: paragraph.differentiator.default
+targetEntityType: paragraph
+bundle: differentiator
+mode: default
+content:
+  field_component_icon:
+    weight: 2
+    label: hidden
+    settings:
+      layers: false
+    third_party_settings: {  }
+    type: fontawesome_icon_formatter
+    region: content
+  field_component_image:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: media_thumbnail
+    region: content
+  field_component_subtitle:
+    weight: 5
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_component_title:
+    weight: 3
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_component_title_link:
+    weight: 4
+    label: hidden
+    settings:
+      trim_length: null
+      url_only: true
+      url_plain: true
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_differentiator_value:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

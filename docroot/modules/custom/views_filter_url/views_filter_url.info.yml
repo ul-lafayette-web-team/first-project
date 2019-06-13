@@ -1,0 +1,8 @@
+name : Views Filter URL
+type: module
+description : A module that adds a view area plugin to print the view filter url for logged in users.
+core : 8.x
+version: 1.0-beta1
+package : Views
+dependencies:
+  - drupal:views

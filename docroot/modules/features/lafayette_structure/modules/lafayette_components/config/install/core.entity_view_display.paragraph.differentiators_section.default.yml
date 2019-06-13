@@ -1,0 +1,55 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.differentiators_section.field_component_body
+    - field.field.paragraph.differentiators_section.field_component_link
+    - field.field.paragraph.differentiators_section.field_component_title
+    - field.field.paragraph.differentiators_section.field_diff_section_diffs
+    - paragraphs.paragraphs_type.differentiators_section
+  module:
+    - entity_reference_revisions
+    - link
+    - text
+id: paragraph.differentiators_section.default
+targetEntityType: paragraph
+bundle: differentiators_section
+mode: default
+content:
+  field_component_body:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_component_link:
+    weight: 3
+    label: visually_hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_component_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_diff_section_diffs:
+    type: entity_reference_revisions_entity_view
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+hidden: {  }

@@ -1,0 +1,33 @@
+name: 'Louisiana Organization'
+type: module
+core: 8.x
+dependencies:
+  - allowed_formats
+  - better_exposed_filters
+  - content_moderation
+  - context
+  - entity_browser
+  - field
+  - field_group
+  - lafayette_content
+  - lafayette_global_fields
+  - lafayette_media
+  - lafayette_workflow
+  - media
+  - menu_ui
+  - metatag
+  - node
+  - path
+  - pathauto
+  - rabbit_hole
+  - simple_sitemap
+  - smart_trim
+  - system
+  - taxonomy
+  - telephone
+  - text
+  - user
+  - views
+  - views_active_filters
+  - views_filter_url
+package: Louisiana

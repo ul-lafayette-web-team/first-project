@@ -1,0 +1,62 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.footer_content_block
+    - field.field.block_content.footer_content_block.field_component_body
+    - field.field.block_content.footer_content_block.field_fcb_email
+    - field.field.block_content.footer_content_block.field_fcb_phone_number
+    - field.field.block_content.footer_content_block.field_fcb_social_media_links
+  module:
+    - paragraphs
+    - telephone
+    - text
+id: block_content.footer_content_block.default
+targetEntityType: block_content
+bundle: footer_content_block
+mode: default
+content:
+  field_component_body:
+    weight: 3
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_fcb_email:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content
+  field_fcb_phone_number:
+    weight: 1
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+    region: content
+  field_fcb_social_media_links:
+    type: entity_reference_paragraphs
+    weight: 4
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

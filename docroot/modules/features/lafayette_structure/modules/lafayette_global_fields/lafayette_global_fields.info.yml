@@ -1,0 +1,17 @@
+name: 'Louisiana Global Fields'
+type: module
+core: 8.x
+package: 'Louisiana'
+dependencies:
+  - allowed_formats
+  - block_content
+  - field
+  - fontawesome
+  - link
+  - media
+  - metatag
+  - node
+  - lafayette_media
+  - paragraphs
+  - text
+  - webform

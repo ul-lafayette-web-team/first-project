@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.medium_listing
+label: 'Medium Listing'
+targetEntityType: node
+cache: true

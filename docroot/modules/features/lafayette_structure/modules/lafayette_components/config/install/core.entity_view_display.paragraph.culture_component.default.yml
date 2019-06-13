@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.culture_component.field_cc_culture_features
+    - field.field.paragraph.culture_component.field_component_title
+    - paragraphs.paragraphs_type.culture_component
+id: paragraph.culture_component.default
+targetEntityType: paragraph
+bundle: culture_component
+mode: default
+content:
+  field_cc_culture_features:
+    weight: 1
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_component_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

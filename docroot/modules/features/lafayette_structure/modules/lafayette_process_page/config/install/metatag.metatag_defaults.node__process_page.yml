@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: node__process_page
+label: 'Content: Process Page'
+tags:
+  description: '[node:field_intro_text]'
+  og_description: '[node:field_intro_text]'

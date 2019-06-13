@@ -1,0 +1,77 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.ohou_image_browser
+    - field.field.paragraph.differentiator.field_component_icon
+    - field.field.paragraph.differentiator.field_component_image
+    - field.field.paragraph.differentiator.field_component_subtitle
+    - field.field.paragraph.differentiator.field_component_title
+    - field.field.paragraph.differentiator.field_component_title_link
+    - field.field.paragraph.differentiator.field_differentiator_value
+    - paragraphs.paragraphs_type.differentiator
+  module:
+    - entity_browser
+    - fontawesome
+    - link
+id: paragraph.differentiator.default
+targetEntityType: paragraph
+bundle: differentiator
+mode: default
+content:
+  field_component_icon:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: fontawesome_icon_widget
+    region: content
+  field_component_image:
+    weight: 1
+    settings:
+      entity_browser: ohou_image_browser
+      field_widget_display: rendered_entity
+      field_widget_remove: true
+      field_widget_replace: true
+      open: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: default
+      field_widget_edit: false
+    third_party_settings: {  }
+    type: entity_browser_entity_reference
+    region: content
+  field_component_subtitle:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_component_title:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_component_title_link:
+    weight: 4
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_differentiator_value:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

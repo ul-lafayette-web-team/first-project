@@ -1,0 +1,49 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.organization.body
+    - field.field.node.organization.field_header_image
+    - field.field.node.organization.field_organization_email
+    - field.field.node.organization.field_organization_location
+    - field.field.node.organization.field_organization_office_hours
+    - field.field.node.organization.field_organization_phone_number
+    - field.field.node.organization.field_organization_type
+    - node.type.organization
+  module:
+    - smart_trim
+    - user
+id: node.organization.teaser
+targetEntityType: node
+bundle: organization
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: smart_trim
+    weight: 0
+    settings:
+      trim_length: 200
+      trim_type: chars
+      trim_suffix: ...
+      wrap_class: trimmed
+      more_text: More
+      more_class: more-link
+      summary_handler: full
+      trim_options:
+        text: true
+        trim_zero: false
+      wrap_output: false
+      more_link: false
+    third_party_settings: {  }
+    region: content
+hidden:
+  content_moderation_control: true
+  field_header_image: true
+  field_organization_email: true
+  field_organization_location: true
+  field_organization_office_hours: true
+  field_organization_phone_number: true
+  field_organization_type: true
+  links: true

@@ -1,0 +1,8 @@
+name : OHO Alert
+type: module
+description : A module that provides a configurable sitewide alert message.
+package : OHO
+version: VERSION
+core : 8.x
+
+configure: oho_alert.settings.form

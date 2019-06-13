@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.subsection
+  enforced:
+    config:
+      - user.role.content_editor
+id: subsection-111523d41
+label: 'Content editor'
+weight: -8
+internal: true
+audience: outsider
+group_type: subsection
+permissions_ui: false
+permissions: {  }

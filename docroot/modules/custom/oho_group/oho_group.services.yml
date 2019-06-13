@@ -1,0 +1,8 @@
+services:
+  oho_group.group_service:
+    class: Drupal\oho_group\GroupService
+
+  theme.negotiator.example:
+    class: Drupal\oho_group\Theme\ThemeNegotiator
+    tags:
+      - { name: theme_negotiator, priority: 0 }

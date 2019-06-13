@@ -1,0 +1,17 @@
+browser_view:
+  css:
+    theme:
+      css/lafayette_media.browser.view.css: {}
+  js:
+    js/lafayette_media.browser.view.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+
+library_view:
+  css:
+    theme:
+      css/lafayette_media.library.view.css: {}
+  dependencies:
+    - core/jquery
+    - core/drupal

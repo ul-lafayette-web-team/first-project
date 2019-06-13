@@ -1,0 +1,41 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.ohou_media_browser
+  module:
+    - entity_browser_entity_form
+    - views
+name: ohou_video_browser
+label: 'OHOU Video Browser'
+display: modal
+display_configuration:
+  width: '1070'
+  height: '900'
+  link_text: 'Select video'
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  c661d84b-6705-4bd1-91ba-8932cb71ae4b:
+    settings:
+      view: ohou_media_browser
+      view_display: video_browser
+      submit_text: 'Place video'
+      auto_select: false
+    uuid: c661d84b-6705-4bd1-91ba-8932cb71ae4b
+    weight: 1
+    label: Library
+    id: view
+  539b7000-d9af-4775-859f-5b3df82a7d10:
+    settings:
+      entity_type: media
+      bundle: video
+      form_mode: browser
+      submit_text: 'Place video'
+    uuid: 539b7000-d9af-4775-859f-5b3df82a7d10
+    weight: 2
+    label: 'Add Videos'
+    id: entity_form

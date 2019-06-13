@@ -1,0 +1,66 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_program_features_section
+    - node.type.program
+    - paragraphs.paragraphs_type.program_features_section
+  module:
+    - entity_reference_revisions
+id: node.program.field_program_features_section
+field_name: field_program_features_section
+entity_type: node
+bundle: program
+label: 'Program Features Section'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      program_features_section: program_features_section
+    target_bundles_drag_drop:
+      applicant_type:
+        weight: 14
+        enabled: false
+      checkerboard:
+        weight: 15
+        enabled: false
+      checkerboard_item:
+        weight: 16
+        enabled: false
+      differentiator:
+        weight: 17
+        enabled: false
+      differentiators_section:
+        weight: 18
+        enabled: false
+      expandable_item:
+        weight: 19
+        enabled: false
+      expandable_section:
+        weight: 20
+        enabled: false
+      gallery:
+        weight: 21
+        enabled: false
+      gallery_item:
+        weight: 22
+        enabled: false
+      mega_menu_item:
+        weight: 23
+        enabled: false
+      process_step:
+        weight: 24
+        enabled: false
+      program_features_section:
+        enabled: true
+        weight: 25
+      social_media_link:
+        weight: 26
+        enabled: false
+field_type: entity_reference_revisions

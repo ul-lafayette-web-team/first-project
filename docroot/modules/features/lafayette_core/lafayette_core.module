@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * @file
+ * Contains core functionality for the Louisiana distribution.
+ */
+
+use Drupal\Core\Breadcrumb\Breadcrumb;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Link;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_system_breadcrumb_alter().
+ */
+function lafayette_core_system_breadcrumb_alter(Breadcrumb &$breadcrumb, RouteMatchInterface $route_match, array $context) {
+  if ($breadcrumb && !\Drupal::service('router.admin_context')->isAdminRoute()) {
+    $node = \Drupal::request()->get('node');
+
+    // Add the current node title to breadcrumbs.
+    if (!empty($node) && is_object($node)) {
+      $breadcrumb->addLink(Link::createFromRoute($node->getTitle(), '<nolink>'));
+      $breadcrumb->addCacheContexts(['url.path']);
+    }
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function lafayette_core_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Fix the action url so that the reset button works.
+  // See 'https://www.drupal.org/project/drupal/issues/2820347'.
+  if ($form['#form_id'] == 'views_exposed_form' && isset($form['actions']['reset'])) {
+    $form['#action'] = '';
+  }
+}

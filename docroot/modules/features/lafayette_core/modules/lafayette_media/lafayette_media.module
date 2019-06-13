@@ -1,0 +1,42 @@
+<?php
+
+/**
+ * @file
+ * Contains functionality for the Louisiana Media module.
+ */
+
+/**
+ * Implements hook_contextual_links_view_alter().
+ */
+function lafayette_media_contextual_links_view_alter(&$element, $items) {
+  if (isset($element['#links']['entitymediaedit-form']) ||
+      isset($element['#links']['entitymediadelete-form'])) {
+    // Disable the Media edit and delete links so they do not
+    // appear on fields.
+    $element['#links'] = [];
+  }
+}
+
+/**
+ * Implements template_preprocess_media().
+ */
+function lafayette_media_preprocess_media(&$vars) {
+  if ($vars['media']->bundle() == 'video') {
+    if ($vars['view_mode'] == 'small') {
+      // Get the video url.
+      $vars['video_url'] = $vars['media']->get('field_media_video_embed_field')->value;
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_views_view().
+ */
+function lafayette_media_preprocess_views_view(&$variables) {
+  if ($variables['view']->id() === 'ohou_media_browser') {
+    $variables['view_array']['#attached']['library'][] = 'lafayette_media/browser_view';
+  }
+  elseif ($variables['view']->id() === 'ohou_media_library') {
+    $variables['view_array']['#attached']['library'][] = 'lafayette_media/library_view';
+  }
+}

@@ -1,0 +1,8 @@
+{% import "@oho_base/includes/oho-macros.html.twig" as oho_macros %}
+{{ content.field_component_link }}
+<div style="display:none;">
+  {% if content.field_component_body|render %}
+    <p>{{ content.field_component_body }}</p>
+  {% endif %}
+  {{ oho_macros.link_field_list(content.field_mmi_links) }}
+</div>

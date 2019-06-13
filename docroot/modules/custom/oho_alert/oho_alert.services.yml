@@ -1,0 +1,4 @@
+services:
+  oho_alert.alert_service:
+    class: Drupal\oho_alert\OHOAlertService
+    arguments: ['@config.factory']

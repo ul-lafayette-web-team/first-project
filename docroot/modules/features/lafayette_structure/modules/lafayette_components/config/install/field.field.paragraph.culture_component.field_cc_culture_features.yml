@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cc_culture_features
+    - node.type.culture_feature
+    - paragraphs.paragraphs_type.culture_component
+id: paragraph.culture_component.field_cc_culture_features
+field_name: field_cc_culture_features
+entity_type: paragraph
+bundle: culture_component
+label: 'Culture Features'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      culture_feature: culture_feature
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,154 @@
+/**
+ * @media-entity lafayette_media.browser.view.css
+ */
+
+.view-ohou-media-browser .pager {
+  padding: 20px;
+}
+
+.view-ohou-media-browser .view-content {
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.view-ohou-media-browser .media-item {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  flex: 0 0 100%;
+  display: block;
+  text-align: center;
+  border: 2px solid #b8b8b8;
+  transition: .2s;
+  cursor: pointer;
+}
+
+@media screen and (min-width:37.5em) { /* 600px */
+  .view-ohou-media-browser .media-item {
+    width: 25%;
+    max-width: 25%;
+    flex: 0 0 25%;
+  }
+}
+
+@media screen and (min-width:62.5em) { /* 1000px */
+  .view-ohou-media-browser .media-item {
+    width: 25%;
+    max-width: 25%;
+    flex: 0 0 25%;
+  }
+}
+
+.view-ohou-media-browser .media-item.checked {
+  border: 2px solid #37802f;
+}
+
+.view-ohou-media-browser .media-item img,
+.media-item--Document .media-item--thumbnail {
+  vertical-align: bottom;
+  width: 100%;
+  height: auto;
+}
+
+.view-ohou-media-browser .media-item img::selection,
+.media-item--Document .media-item--thumbnail::selection {
+  background: transparent;
+}
+
+.view-ohou-media-browser .media-item .media-item--media-select {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.view-ohou-media-browser .media-item:after {
+  content: " ";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  background: transparent url("/core/misc/icons/73b355/check.svg") no-repeat center center;
+  background-size: 0;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.view-ohou-media-browser .media-item.checked:after {
+  background-size: 80px 80px;
+}
+
+.media-item--media-info {
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  bottom: 0;
+  background-color: rgba(0,0,0,.8);
+  padding: 5px 10px;
+  color: white;
+  text-align: left;
+}
+
+/* Media Item Icons */
+
+.media-item .media-item--media-info--icon {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+  height: 18px;
+  width: 18px;
+  margin-right: 4px;
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
+}
+
+.media-item--Video .media-item--media-info--icon {
+  background-image: url("../images/video.svg");
+}
+
+.media-item--Image .media-item--media-info--icon {
+  background-image: url("../images/image.svg");
+}
+
+.media-item--Document .media-item--media-info--icon {
+  background-image: url("../images/document.svg");
+  width: 18px;
+}
+
+.media-item--Tweet .media-item--media-info--icon {
+  background-image: url("../images/twitter.svg");
+}
+
+.media-item--Instagram .media-item--media-info--icon {
+  background-image: url("../images/instagram.png");
+}
+
+/* Media Item Thumbnails */
+
+.media-item--Document .media-item--thumbnail {
+  background-image: url("../images/document_thumbnail.svg");
+}
+
+.media-item--Tweet .media-item--thumbnail {
+  background-image: url("../images/twitter_thumbnail.svg");
+}
+
+.media-item--Document .media-item--thumbnail,
+.media-item--Tweet .media-item--thumbnail {
+  min-height: 200px;
+  background-size: 60px;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.media-item--Document .media-item--thumbnail img,
+.media-item--Tweet .media-item--thumbnail img {
+  display: none;
+}
